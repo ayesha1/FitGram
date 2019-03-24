@@ -84,4 +84,4 @@ Optional:
 </p>
 
 ### [BONUS] Interactive Prototype
-<img src="https://imgur.com/fk9IJxd.gif" width=200>
+<img src="https://media.giphy.com/media/1Ye8AegwWymakoKwpc/giphy.gif" width=200>
