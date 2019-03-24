@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67421F5E8D7162D63B85AE62 /* Pods_FitGramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940399A09079A09547646AE6 /* Pods_FitGramUITests.framework */; };
 		6A94450E22480D3000980F88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A94450D22480D3000980F88 /* AppDelegate.swift */; };
 		6A94451022480D3000980F88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A94450F22480D3000980F88 /* ViewController.swift */; };
 		6A94451322480D3000980F88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A94451122480D3000980F88 /* Main.storyboard */; };
@@ -14,6 +15,8 @@
 		6A94451822480D3300980F88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A94451622480D3300980F88 /* LaunchScreen.storyboard */; };
 		6A94452322480D3300980F88 /* FitGramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A94452222480D3300980F88 /* FitGramTests.swift */; };
 		6A94452E22480D3300980F88 /* FitGramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A94452D22480D3300980F88 /* FitGramUITests.swift */; };
+		90963D2075177A28F9D3D239 /* Pods_FitGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D72CD36E123B07FE86CA24A8 /* Pods_FitGram.framework */; };
+		A939F42BF0B148FA08CA4485 /* Pods_FitGramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D331D5ABE369A076D621F0 /* Pods_FitGramTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08D493BD7918F5C714641236 /* Pods-FitGramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitGramTests/Pods-FitGramTests.release.xcconfig"; sourceTree = "<group>"; };
+		4026B0B4A0A30922BCDAAEB9 /* Pods-FitGramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitGramTests/Pods-FitGramTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4D5C0C86127AECE77FBF174D /* Pods-FitGramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitGramUITests/Pods-FitGramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6A94450A22480D3000980F88 /* FitGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A94450D22480D3000980F88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A94450F22480D3000980F88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +53,12 @@
 		6A94452922480D3300980F88 /* FitGramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitGramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A94452D22480D3300980F88 /* FitGramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitGramUITests.swift; sourceTree = "<group>"; };
 		6A94452F22480D3300980F88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74F0695CB68600898C31E363 /* Pods-FitGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGram.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitGram/Pods-FitGram.release.xcconfig"; sourceTree = "<group>"; };
+		7AE142BEA2F1A685A2AE97C0 /* Pods-FitGramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitGramUITests/Pods-FitGramUITests.release.xcconfig"; sourceTree = "<group>"; };
+		940399A09079A09547646AE6 /* Pods_FitGramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitGramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3D331D5ABE369A076D621F0 /* Pods_FitGramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitGramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D72CD36E123B07FE86CA24A8 /* Pods_FitGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2CEE7ED9E66D8DBEDDE4C26 /* Pods-FitGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitGram/Pods-FitGram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90963D2075177A28F9D3D239 /* Pods_FitGram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A939F42BF0B148FA08CA4485 /* Pods_FitGramTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67421F5E8D7162D63B85AE62 /* Pods_FitGramUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +96,8 @@
 				6A94452122480D3300980F88 /* FitGramTests */,
 				6A94452C22480D3300980F88 /* FitGramUITests */,
 				6A94450B22480D3000980F88 /* Products */,
+				B05B5E56AB002A5600C8AAEB /* Pods */,
+				BBBC4A2CEBC10DE6A6C161C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +142,29 @@
 			path = FitGramUITests;
 			sourceTree = "<group>";
 		};
+		B05B5E56AB002A5600C8AAEB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E2CEE7ED9E66D8DBEDDE4C26 /* Pods-FitGram.debug.xcconfig */,
+				74F0695CB68600898C31E363 /* Pods-FitGram.release.xcconfig */,
+				4026B0B4A0A30922BCDAAEB9 /* Pods-FitGramTests.debug.xcconfig */,
+				08D493BD7918F5C714641236 /* Pods-FitGramTests.release.xcconfig */,
+				4D5C0C86127AECE77FBF174D /* Pods-FitGramUITests.debug.xcconfig */,
+				7AE142BEA2F1A685A2AE97C0 /* Pods-FitGramUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BBBC4A2CEBC10DE6A6C161C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D72CD36E123B07FE86CA24A8 /* Pods_FitGram.framework */,
+				C3D331D5ABE369A076D621F0 /* Pods_FitGramTests.framework */,
+				940399A09079A09547646AE6 /* Pods_FitGramUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +172,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A94453222480D3300980F88 /* Build configuration list for PBXNativeTarget "FitGram" */;
 			buildPhases = (
+				76075D20572BF5D4846E6223 /* [CP] Check Pods Manifest.lock */,
 				6A94450622480D3000980F88 /* Sources */,
 				6A94450722480D3000980F88 /* Frameworks */,
 				6A94450822480D3000980F88 /* Resources */,
+				A7AEC4CE411A49D4832C31C5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +191,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A94453522480D3300980F88 /* Build configuration list for PBXNativeTarget "FitGramTests" */;
 			buildPhases = (
+				9F937440DC4C58A815E9B2B7 /* [CP] Check Pods Manifest.lock */,
 				6A94451A22480D3300980F88 /* Sources */,
 				6A94451B22480D3300980F88 /* Frameworks */,
 				6A94451C22480D3300980F88 /* Resources */,
@@ -167,6 +210,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A94453822480D3300980F88 /* Build configuration list for PBXNativeTarget "FitGramUITests" */;
 			buildPhases = (
+				5F9FBE0280701324ACAD4BD5 /* [CP] Check Pods Manifest.lock */,
 				6A94452522480D3300980F88 /* Sources */,
 				6A94452622480D3300980F88 /* Frameworks */,
 				6A94452722480D3300980F88 /* Resources */,
@@ -250,6 +294,81 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5F9FBE0280701324ACAD4BD5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FitGramUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76075D20572BF5D4846E6223 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FitGram-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F937440DC4C58A815E9B2B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FitGramTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7AEC4CE411A49D4832C31C5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FitGram/Pods-FitGram-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Tabby/Tabby.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tabby.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FitGram/Pods-FitGram-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6A94450622480D3000980F88 /* Sources */ = {
@@ -430,6 +549,7 @@
 		};
 		6A94453322480D3300980F88 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2CEE7ED9E66D8DBEDDE4C26 /* Pods-FitGram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,6 +568,7 @@
 		};
 		6A94453422480D3300980F88 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74F0695CB68600898C31E363 /* Pods-FitGram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +587,7 @@
 		};
 		6A94453622480D3300980F88 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4026B0B4A0A30922BCDAAEB9 /* Pods-FitGramTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +609,7 @@
 		};
 		6A94453722480D3300980F88 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08D493BD7918F5C714641236 /* Pods-FitGramTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +631,7 @@
 		};
 		6A94453922480D3300980F88 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D5C0C86127AECE77FBF174D /* Pods-FitGramUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +652,7 @@
 		};
 		6A94453A22480D3300980F88 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AE142BEA2F1A685A2AE97C0 /* Pods-FitGramUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,0 +1,6 @@
+framework module Pods_FitGram {
+  umbrella header "Pods-FitGram-umbrella.h"
+
+  export *
+  module * { export * }
+}

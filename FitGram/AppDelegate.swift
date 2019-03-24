@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Tabby
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -1,0 +1,21 @@
+PODS:
+  - Tabby (0.2.0)
+
+DEPENDENCIES:
+  - Tabby (from `https://github.com/hyperoslo/Tabby.git`)
+
+EXTERNAL SOURCES:
+  Tabby:
+    :git: https://github.com/hyperoslo/Tabby.git
+
+CHECKOUT OPTIONS:
+  Tabby:
+    :commit: d41befad6cb4add7f13e0d04aaae185a2dc80b32
+    :git: https://github.com/hyperoslo/Tabby.git
+
+SPEC CHECKSUMS:
+  Tabby: 667812a8e5fe79ec59076abecd4ef52204263838
+
+PODFILE CHECKSUM: 2b823282884218f550a794b3c64600fe444ff83c
+
+COCOAPODS: 1.5.3
