@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         controller.translucent = false
         
         return controller
-        }()
+    }()
 
     lazy var firstNavigation: UINavigationController = UINavigationController(rootViewController: self.firstController)
     lazy var thirdNavigation: UINavigationController = UINavigationController(rootViewController: self.thirdController)
