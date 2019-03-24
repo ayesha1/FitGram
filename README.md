@@ -73,13 +73,13 @@ Optional:
 * Settings -> Toggle settings
 
 ## Wireframes
-<img src="https://imgur.com/a/Ygmzekm.jpg" width=800><br>
+<img src="https://imgur.com/uZgHIqv.jpg" width=800><br>
 
 ### [BONUS] Digital Wireframes & Mockups
-<img src="https://imgur.com/a/tp7tAaf.jpg" height=200>
-<img src="https://imgur.com/a/2hTeCvo.jpg" height=200>
-<img src="https://imgur.com/a/6zEJO7C.jpg" height=200>
+<img src="https://imgur.com/JL5CnEK.jpg" height=200>
+<img src="https://imgur.com/axReeOU.jpg" height=200>
+<img src="https://imgur.com/Hc355ko.jpg" height=200>
 
 
 ### [BONUS] Interactive Prototype
-<img src="https://imgur.com/a/fXrVWkq.gif" width=200>
+<img src="https://imgur.com/fk9IJxd.gif" width=200>
