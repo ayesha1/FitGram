@@ -76,10 +76,12 @@ Optional:
 <img src="https://imgur.com/uZgHIqv.jpg" width=800><br>
 
 ### [BONUS] Digital Wireframes & Mockups
-<img src="https://imgur.com/JL5CnEK.jpg" height=200>
-<img src="https://imgur.com/axReeOU.jpg" height=200>
-<img src="https://imgur.com/Hc355ko.jpg" height=200>
-
+<p float="left">
+<img src="https://imgur.com/JL5CnEK.jpg" height=400 hspace="20">
+<img src="https://imgur.com/axReeOU.jpg" height=400 hspace="20">
+<img src="https://imgur.com/Hc355ko.jpg" height=400 hspace="20">
+<img src="https://imgur.com/U5a9MBb.jpg" height=400 hspace="20">
+</p>
 
 ### [BONUS] Interactive Prototype
 <img src="https://imgur.com/fk9IJxd.gif" width=200>
