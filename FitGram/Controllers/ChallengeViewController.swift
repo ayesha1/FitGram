@@ -23,6 +23,8 @@ class ChallengeViewController: GeneralController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        view.backgroundColor = .cyan
+
     }
     
 

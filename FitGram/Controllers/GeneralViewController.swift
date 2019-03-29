@@ -12,7 +12,7 @@ class GeneralController: UIViewController {
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "chef")
+        imageView.image = UIImage(named: "dumbbell")
         
         return imageView
     }()

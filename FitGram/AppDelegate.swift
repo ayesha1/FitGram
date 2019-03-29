@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     lazy var firstNavigation: UINavigationController = UINavigationController(rootViewController: self.firstController)
+    lazy var secondNavigation: UINavigationController = UINavigationController(rootViewController: self.secondController)
     lazy var thirdNavigation: UINavigationController = UINavigationController(rootViewController: self.thirdController)
 
     lazy var firstController: ExerciseNewsFeedViewController = ExerciseNewsFeedViewController()
