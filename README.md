@@ -67,7 +67,7 @@ Optional:
 
 ### [BONUS] Digital Wireframes & Mockups
 <p float="left">
-<img src="https://imgur.com/rHmLx6gjpg" height=400 hspace="20">
+<img src="https://imgur.com/JL5CnEK.jpg" height=400 hspace="20">
 <img src="https://imgur.com/axReeOU.jpg" height=400 hspace="20">
 <img src="https://imgur.com/Hc355ko.jpg" height=400 hspace="20">
 <img src="https://imgur.com/U5a9MBb.jpg" height=400 hspace="20">
