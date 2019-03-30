@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     lazy var items: [TabbyBarItem] = [
-        TabbyBarItem(controller: self.firstNavigation, image: "dumbbell"),
+        TabbyBarItem(controller: self.firstNavigation, image: ""),
         TabbyBarItem(controller: self.secondController, image: "lightning-bolt-shadow"),
         TabbyBarItem(controller: self.thirdNavigation, image: "man-user")
     ]
