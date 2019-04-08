@@ -1,21 +1,16 @@
 PODS:
-  - Tabby (0.2.0)
+  - SwipeableTabBarController (2.1.0)
 
 DEPENDENCIES:
-  - Tabby (from `https://github.com/hyperoslo/Tabby.git`)
+  - SwipeableTabBarController
 
-EXTERNAL SOURCES:
-  Tabby:
-    :git: https://github.com/hyperoslo/Tabby.git
-
-CHECKOUT OPTIONS:
-  Tabby:
-    :commit: d41befad6cb4add7f13e0d04aaae185a2dc80b32
-    :git: https://github.com/hyperoslo/Tabby.git
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SwipeableTabBarController
 
 SPEC CHECKSUMS:
-  Tabby: 667812a8e5fe79ec59076abecd4ef52204263838
+  SwipeableTabBarController: e6445066473bb548cc74f660c0ebc04d609cde67
 
-PODFILE CHECKSUM: 2b823282884218f550a794b3c64600fe444ff83c
+PODFILE CHECKSUM: 9d22be6ae222f3a67f7591c73e40d7ca38c29278
 
 COCOAPODS: 1.5.3
