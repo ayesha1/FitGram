@@ -7,24 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07C19006FA358E0244ADB91BF19E8D6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		264DDBD187F4DDB3EE77E8AD959DFDDC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		1C2A65597145DE4B9306C5486F71457A /* CBTabItemBasicAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3702EA0F5AC04D2DF63A0D892C8F2837 /* CBTabItemBasicAnimation.swift */; };
+		1DEBBAD30E78C363393E411B9759640A /* CBTabItemSelectAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6456A952BC70EC38129AAE1D4277AB /* CBTabItemSelectAnimation.swift */; };
 		312929428F3346FD10CEFA0C20759883 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		33A031880169A77B5A4406D62134738D /* SwipeableTabBarController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AAFB1F80C0955B3A0DB2906B8530538 /* SwipeableTabBarController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		355ACDB0AD602E4E62CD1B35319CA7A5 /* SwipeAnimationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA326CA84D9FF04F66684FCD271DC6 /* SwipeAnimationType.swift */; };
-		35DDD2375707F7041690B3303D7A88F5 /* UIKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0561F30FE0147E16F85ABDE988D4413 /* UIKit+Extensions.swift */; };
+		32087815A10088DF3023A84CBEA7A05A /* CBTabItemAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07169D4AB914160E17B4112732D263F0 /* CBTabItemAnimation.swift */; };
+		358F10DF7CA10C297FDB6E705EE27CD7 /* Pods-FitGram-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C37652FCFA7D92107DBC39CA83ED980E /* Pods-FitGram-dummy.m */; };
 		4C9230EDCF62B377C63FBCE5BE33761D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 		6E27E514DD4783B3C9CB0E58E758A168 /* Pods-FitGramUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AEF76796B994AF63AC83B4954C15D2B /* Pods-FitGramUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E6298B610CFDBB66A4783B24373E4ED /* Pods-FitGramTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 911924D9F15DA65499BD5F0B50EAE485 /* Pods-FitGramTests-dummy.m */; };
+		76C56753CFCBE6DD0B31A10BE2C22C74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		827B109989A22A31B2726549F72090AA /* Pods-FitGram-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E917EE6E13A4E2BB17856626087030E /* Pods-FitGram-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8358FEAA10EADF98985609D95B1955F9 /* Pods-FitGramUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B148397CE31E85EB0D1D45EC0F8D905E /* Pods-FitGramUITests-dummy.m */; };
-		95EC372EAB79F4FCF1F1AAAD9C8719F6 /* SwipeableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD0D85C3EC6A8B6ECDA13311BAC78F /* SwipeableTabBarController.swift */; };
-		9E7558F02028D9C295876410A846C5B4 /* SwipeableTabBarController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC69A49A75AA6CA1A07B3E176FBEF6A /* SwipeableTabBarController-dummy.m */; };
-		B4CEC789A960A24BA9E76253C9BE6C51 /* SwipeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A666D8A4D1DFD253EA620102ABBE0BA /* SwipeInteractor.swift */; };
-		C91E9E71CA93EA6435D953D582EBBD83 /* SwipeTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDE317CEB930B86936470366BBD7B3C /* SwipeTransitionAnimator.swift */; };
-		CCC922A7761927FADD7B670EB71384D6 /* Pods-FitGram-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C37652FCFA7D92107DBC39CA83ED980E /* Pods-FitGram-dummy.m */; };
-		D9C4254613B832E38FC887B9F4CCEE33 /* Pods-FitGram-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E917EE6E13A4E2BB17856626087030E /* Pods-FitGram-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84F9B44E65EF4098BF3BA3C9E43DEE46 /* CBFlashyTabBarController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 78305DA4D473BB607440BE8BA12434B8 /* CBFlashyTabBarController-dummy.m */; };
+		91C7D97F3533A1A16B0F842A5C38BEAB /* CBTabItemDeselectAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ABF6D1470F629D87A152DC84D37A7D /* CBTabItemDeselectAnimation.swift */; };
+		AF57AC975B047EAB24EA3CB0DDBD32B5 /* CBTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4610BE74C46879FE5C0903734BFCA0 /* CBTabBarButton.swift */; };
+		B35D8F6720F90F99EA25564AF03A60E9 /* CBFlashyTabBarController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 03D1273AE87545ED937FE25BE82F6055 /* CBFlashyTabBarController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B542A814EBFD29A714C8793C4F37D515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		D2A571D32B7B919B6420E857EC071231 /* CBFlashyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6966A9E1FBF7312D116A29F1BD1BD010 /* CBFlashyTabBarController.swift */; };
+		F1CAE8A576C0E2743844A2C1BEB4D64C /* CBFlashyTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BEDC32F2E3286FBA7A43789D3D899F /* CBFlashyTabBar.swift */; };
 		F47687CC338B8DEEBD74956DD6072E14 /* Pods-FitGramTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F5A46C6A6DA9209CB981A241D65F1F09 /* Pods-FitGramTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F92D569667B4AB88F86EA4DC22756037 /* SwipeTransitioningProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55F5C728A92F5822C844BDEC92F1879 /* SwipeTransitioningProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,48 +33,52 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 15B6D1C1FB4BD6CE0B682AFC30763BDA;
+			remoteGlobalIDString = 0B0075ECDDD3E84DBAD74C982430745B;
 			remoteInfo = "Pods-FitGram";
 		};
 		9F209CC7172B2EB7382643AB8A93C1BA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 15B6D1C1FB4BD6CE0B682AFC30763BDA;
+			remoteGlobalIDString = 0B0075ECDDD3E84DBAD74C982430745B;
 			remoteInfo = "Pods-FitGram";
 		};
-		BC4D01DB638BC230E2552EE1CD4799FA /* PBXContainerItemProxy */ = {
+		B3B451AEDAFA82213F9A33F5B5B4DA74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F1033A24787A721B12E6E320C8D7C9D1;
-			remoteInfo = SwipeableTabBarController;
+			remoteGlobalIDString = 67EF7FDADA045E28AB5E2F9BDF37DAC8;
+			remoteInfo = CBFlashyTabBarController;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		009F09C40500FF895EA64E121AD42FD7 /* Pods-FitGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FitGram.release.xcconfig"; sourceTree = "<group>"; };
-		015AAFC76673F24E89E35DAB7CA36A1B /* Pods_FitGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FitGram.framework; path = "Pods-FitGram.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		017A0E0406814AF23EE6F69E4065DD5A /* Pods_FitGramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FitGramUITests.framework; path = "Pods-FitGramUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A7300B6057826CD976A7299F4161C6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04460DFABD05CBACB03CC60A76127AEA /* SwipeableTabBarController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwipeableTabBarController.modulemap; sourceTree = "<group>"; };
-		09AD0D85C3EC6A8B6ECDA13311BAC78F /* SwipeableTabBarController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeableTabBarController.swift; path = SwipeableTabBarController/Classes/SwipeableTabBarController.swift; sourceTree = "<group>"; };
-		1A666D8A4D1DFD253EA620102ABBE0BA /* SwipeInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeInteractor.swift; path = SwipeableTabBarController/Classes/SwipeInteractor.swift; sourceTree = "<group>"; };
-		297CBD9D0363E59C815558A2F69AFC2E /* Pods_FitGramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FitGramTests.framework; path = "Pods-FitGramTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		03D1273AE87545ED937FE25BE82F6055 /* CBFlashyTabBarController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBFlashyTabBarController-umbrella.h"; sourceTree = "<group>"; };
+		07169D4AB914160E17B4112732D263F0 /* CBTabItemAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CBTabItemAnimation.swift; path = CBFlashyTabBarController/Classes/Animation/CBTabItemAnimation.swift; sourceTree = "<group>"; };
+		09ABF6D1470F629D87A152DC84D37A7D /* CBTabItemDeselectAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CBTabItemDeselectAnimation.swift; path = CBFlashyTabBarController/Classes/Animation/CBTabItemDeselectAnimation.swift; sourceTree = "<group>"; };
+		0DE270C9904F87B6AEB6C8B0E733FCCC /* CBFlashyTabBarController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CBFlashyTabBarController.xcconfig; sourceTree = "<group>"; };
+		17BEDC32F2E3286FBA7A43789D3D899F /* CBFlashyTabBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CBFlashyTabBar.swift; path = CBFlashyTabBarController/Classes/CBFlashyTabBar.swift; sourceTree = "<group>"; };
 		301397869D79AC46638500A9178BD58F /* Pods-FitGramTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FitGramTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		3702EA0F5AC04D2DF63A0D892C8F2837 /* CBTabItemBasicAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CBTabItemBasicAnimation.swift; path = CBFlashyTabBarController/Classes/Animation/CBTabItemBasicAnimation.swift; sourceTree = "<group>"; };
 		37CCCE0A5835A4BF144F66EEE25B7FC9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3AAFB1F80C0955B3A0DB2906B8530538 /* SwipeableTabBarController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwipeableTabBarController-umbrella.h"; sourceTree = "<group>"; };
+		412B440EBE9AE7BE50806C2732E59F92 /* CBFlashyTabBarController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CBFlashyTabBarController.framework; path = CBFlashyTabBarController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A4610BE74C46879FE5C0903734BFCA0 /* CBTabBarButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CBTabBarButton.swift; path = CBFlashyTabBarController/Classes/CBTabBarButton.swift; sourceTree = "<group>"; };
 		525361F749873E9A02EABFB6C32A5C2C /* Pods-FitGramTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FitGramTests.modulemap"; sourceTree = "<group>"; };
 		552A607641D7C0CB00F38DE2F6490F4A /* Pods-FitGram-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FitGram-resources.sh"; sourceTree = "<group>"; };
 		5974384DDF5EE01F529B67C1D24125E7 /* Pods-FitGramUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FitGramUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		618314F7E3BCE5B4DA3716B5C6EC17DF /* Pods-FitGram-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FitGram-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6966A9E1FBF7312D116A29F1BD1BD010 /* CBFlashyTabBarController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CBFlashyTabBarController.swift; path = CBFlashyTabBarController/Classes/CBFlashyTabBarController.swift; sourceTree = "<group>"; };
+		7204DA9390A20A8C6F8D7EB63C115E99 /* CBFlashyTabBarController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBFlashyTabBarController-prefix.pch"; sourceTree = "<group>"; };
 		757362542BC8BB7EEF01B184E659A2EC /* Pods-FitGramTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FitGramTests-frameworks.sh"; sourceTree = "<group>"; };
 		760BAC3B9B9279D207BF8E51EBEFC792 /* Pods-FitGramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FitGramTests.debug.xcconfig"; sourceTree = "<group>"; };
+		78305DA4D473BB607440BE8BA12434B8 /* CBFlashyTabBarController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBFlashyTabBarController-dummy.m"; sourceTree = "<group>"; };
 		7E917EE6E13A4E2BB17856626087030E /* Pods-FitGram-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FitGram-umbrella.h"; sourceTree = "<group>"; };
 		7F16CFDE29B521D339630E14BFC9B08C /* Pods-FitGramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FitGramTests.release.xcconfig"; sourceTree = "<group>"; };
 		83379284E86467EED2108603DC4D1364 /* Pods-FitGramUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FitGramUITests-resources.sh"; sourceTree = "<group>"; };
-		8593297B4FDCEEEE165125C910751C53 /* SwipeableTabBarController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwipeableTabBarController.xcconfig; sourceTree = "<group>"; };
-		8AAA326CA84D9FF04F66684FCD271DC6 /* SwipeAnimationType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeAnimationType.swift; path = SwipeableTabBarController/Classes/SwipeAnimationType.swift; sourceTree = "<group>"; };
 		8AEF76796B994AF63AC83B4954C15D2B /* Pods-FitGramUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FitGramUITests-umbrella.h"; sourceTree = "<group>"; };
 		8CC99B1A8FE0AC394EB3EAFB16E05788 /* Pods-FitGram-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FitGram-acknowledgements.plist"; sourceTree = "<group>"; };
 		900B6610DBE7247D5DCAD2B29CF1FFDA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,23 +86,20 @@
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9833D7B84768DF9258CFAED11CECF926 /* Pods-FitGramTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FitGramTests-resources.sh"; sourceTree = "<group>"; };
 		A2A4EA965970FBBF5F811157CEA1F2E5 /* Pods-FitGramUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FitGramUITests.modulemap"; sourceTree = "<group>"; };
-		A4FF9BFC5F7FB86B943C3CFDF3596152 /* Pods_FitGramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FitGramUITests.framework; path = "Pods-FitGramUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B148397CE31E85EB0D1D45EC0F8D905E /* Pods-FitGramUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FitGramUITests-dummy.m"; sourceTree = "<group>"; };
 		B1809BF18740C0F0C5A35A0D51DB47FC /* Pods-FitGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FitGram.debug.xcconfig"; sourceTree = "<group>"; };
-		B89B0B92F17703FA80ED16DD78889345 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9B6D327F7DB07D92E98B2ADEBA12968 /* Pods-FitGram-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FitGram-frameworks.sh"; sourceTree = "<group>"; };
 		C29B39C1603A7AB98E6FEAD264E92D3E /* Pods-FitGram.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FitGram.modulemap"; sourceTree = "<group>"; };
 		C37652FCFA7D92107DBC39CA83ED980E /* Pods-FitGram-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FitGram-dummy.m"; sourceTree = "<group>"; };
 		C479C005C7DAEE2B94FC567F80E22784 /* Pods-FitGramTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FitGramTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C6917CBEBE6AF94A445038FAC280BCF5 /* Pods-FitGramUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FitGramUITests-frameworks.sh"; sourceTree = "<group>"; };
-		CEDE317CEB930B86936470366BBD7B3C /* SwipeTransitionAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeTransitionAnimator.swift; path = SwipeableTabBarController/Classes/SwipeTransitionAnimator.swift; sourceTree = "<group>"; };
-		D0561F30FE0147E16F85ABDE988D4413 /* UIKit+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIKit+Extensions.swift"; path = "SwipeableTabBarController/Classes/UIKit+Extensions.swift"; sourceTree = "<group>"; };
-		D55C0AB221FF5BD22BCF19E0C41899F1 /* SwipeableTabBarController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwipeableTabBarController.framework; path = SwipeableTabBarController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D58B32AC2496E2B90387AD6B75EA10E8 /* SwipeableTabBarController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwipeableTabBarController-prefix.pch"; sourceTree = "<group>"; };
+		CDAFA80323D588A47E8FA5D3583E8D92 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF6456A952BC70EC38129AAE1D4277AB /* CBTabItemSelectAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CBTabItemSelectAnimation.swift; path = CBFlashyTabBarController/Classes/Animation/CBTabItemSelectAnimation.swift; sourceTree = "<group>"; };
 		DCCD5341E343029E96E1BC5A92A6AB92 /* Pods-FitGramUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FitGramUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		DEC69A49A75AA6CA1A07B3E176FBEF6A /* SwipeableTabBarController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwipeableTabBarController-dummy.m"; sourceTree = "<group>"; };
-		E55F5C728A92F5822C844BDEC92F1879 /* SwipeTransitioningProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeTransitioningProtocol.swift; path = SwipeableTabBarController/Classes/SwipeTransitioningProtocol.swift; sourceTree = "<group>"; };
+		E75C0CD875CEEF2A8EAD77CCE2924B17 /* Pods_FitGramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FitGramTests.framework; path = "Pods-FitGramTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01D4B12DE583F108E402DE2E40876D3 /* Pods-FitGramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FitGramUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F056D61B77F26E6E527CEC5CEE14E1B8 /* CBFlashyTabBarController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CBFlashyTabBarController.modulemap; sourceTree = "<group>"; };
+		F0D51CA6B27B56505C4DB93B9A28E565 /* Pods_FitGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FitGram.framework; path = "Pods-FitGram.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A46C6A6DA9209CB981A241D65F1F09 /* Pods-FitGramTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FitGramTests-umbrella.h"; sourceTree = "<group>"; };
 		FCDB7830B0132DF871491F1D1CF484E5 /* Pods-FitGramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FitGramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,19 +113,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6111C05F3124AD719688C53B5315BF19 /* Frameworks */ = {
+		8FD6C87AB80B68F570266018C35F240E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07C19006FA358E0244ADB91BF19E8D6E /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7B03FFC7BAD0B7D9BC42932BE1EFC6B1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				264DDBD187F4DDB3EE77E8AD959DFDDC /* Foundation.framework in Frameworks */,
+				B542A814EBFD29A714C8793C4F37D515 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,47 +129,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BB1AF99AC1A6A529D2803AD3E7573511 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76C56753CFCBE6DD0B31A10BE2C22C74 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08103D140B8BC49E2FA93E6948FAFD31 /* Support Files */ = {
+		26487EB135A8EEF7D77B22A79BB0ADAB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B89B0B92F17703FA80ED16DD78889345 /* Info.plist */,
-				04460DFABD05CBACB03CC60A76127AEA /* SwipeableTabBarController.modulemap */,
-				8593297B4FDCEEEE165125C910751C53 /* SwipeableTabBarController.xcconfig */,
-				DEC69A49A75AA6CA1A07B3E176FBEF6A /* SwipeableTabBarController-dummy.m */,
-				D58B32AC2496E2B90387AD6B75EA10E8 /* SwipeableTabBarController-prefix.pch */,
-				3AAFB1F80C0955B3A0DB2906B8530538 /* SwipeableTabBarController-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwipeableTabBarController";
-			sourceTree = "<group>";
-		};
-		5B8948B0EE12D42012C061846F346AA9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				015AAFC76673F24E89E35DAB7CA36A1B /* Pods_FitGram.framework */,
-				297CBD9D0363E59C815558A2F69AFC2E /* Pods_FitGramTests.framework */,
-				A4FF9BFC5F7FB86B943C3CFDF3596152 /* Pods_FitGramUITests.framework */,
-				D55C0AB221FF5BD22BCF19E0C41899F1 /* SwipeableTabBarController.framework */,
+				412B440EBE9AE7BE50806C2732E59F92 /* CBFlashyTabBarController.framework */,
+				F0D51CA6B27B56505C4DB93B9A28E565 /* Pods_FitGram.framework */,
+				E75C0CD875CEEF2A8EAD77CCE2924B17 /* Pods_FitGramTests.framework */,
+				017A0E0406814AF23EE6F69E4065DD5A /* Pods_FitGramUITests.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5C858855670EEE39DCF2B51BEE79F80A /* SwipeableTabBarController */ = {
+		2EC3FAD785F832BDB86F960FC307CE91 /* CBFlashyTabBarController */ = {
 			isa = PBXGroup;
 			children = (
-				09AD0D85C3EC6A8B6ECDA13311BAC78F /* SwipeableTabBarController.swift */,
-				8AAA326CA84D9FF04F66684FCD271DC6 /* SwipeAnimationType.swift */,
-				1A666D8A4D1DFD253EA620102ABBE0BA /* SwipeInteractor.swift */,
-				CEDE317CEB930B86936470366BBD7B3C /* SwipeTransitionAnimator.swift */,
-				E55F5C728A92F5822C844BDEC92F1879 /* SwipeTransitioningProtocol.swift */,
-				D0561F30FE0147E16F85ABDE988D4413 /* UIKit+Extensions.swift */,
-				08103D140B8BC49E2FA93E6948FAFD31 /* Support Files */,
+				17BEDC32F2E3286FBA7A43789D3D899F /* CBFlashyTabBar.swift */,
+				6966A9E1FBF7312D116A29F1BD1BD010 /* CBFlashyTabBarController.swift */,
+				4A4610BE74C46879FE5C0903734BFCA0 /* CBTabBarButton.swift */,
+				07169D4AB914160E17B4112732D263F0 /* CBTabItemAnimation.swift */,
+				3702EA0F5AC04D2DF63A0D892C8F2837 /* CBTabItemBasicAnimation.swift */,
+				09ABF6D1470F629D87A152DC84D37A7D /* CBTabItemDeselectAnimation.swift */,
+				CF6456A952BC70EC38129AAE1D4277AB /* CBTabItemSelectAnimation.swift */,
+				96CBD3DFD1AA67B7A82624090E988AD7 /* Support Files */,
 			);
-			name = SwipeableTabBarController;
-			path = SwipeableTabBarController;
+			name = CBFlashyTabBarController;
+			path = CBFlashyTabBarController;
 			sourceTree = "<group>";
 		};
 		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
@@ -191,8 +180,8 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				CD8C8EF655B3D3E002188CC522854222 /* Pods */,
-				5B8948B0EE12D42012C061846F346AA9 /* Products */,
+				C51C2C502135154E410F4D3DE0124EE9 /* Pods */,
+				26487EB135A8EEF7D77B22A79BB0ADAB /* Products */,
 				A0CD5AC3C883A688287F0714FA54FE50 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -213,6 +202,20 @@
 			);
 			name = "Pods-FitGramTests";
 			path = "Target Support Files/Pods-FitGramTests";
+			sourceTree = "<group>";
+		};
+		96CBD3DFD1AA67B7A82624090E988AD7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F056D61B77F26E6E527CEC5CEE14E1B8 /* CBFlashyTabBarController.modulemap */,
+				0DE270C9904F87B6AEB6C8B0E733FCCC /* CBFlashyTabBarController.xcconfig */,
+				78305DA4D473BB607440BE8BA12434B8 /* CBFlashyTabBarController-dummy.m */,
+				7204DA9390A20A8C6F8D7EB63C115E99 /* CBFlashyTabBarController-prefix.pch */,
+				03D1273AE87545ED937FE25BE82F6055 /* CBFlashyTabBarController-umbrella.h */,
+				CDAFA80323D588A47E8FA5D3583E8D92 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CBFlashyTabBarController";
 			sourceTree = "<group>";
 		};
 		A0CD5AC3C883A688287F0714FA54FE50 /* Targets Support Files */ = {
@@ -251,6 +254,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C51C2C502135154E410F4D3DE0124EE9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2EC3FAD785F832BDB86F960FC307CE91 /* CBFlashyTabBarController */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C64CE36FB9A3B44DD625C3927A5E972A /* Pods-FitGramUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,14 +278,6 @@
 			);
 			name = "Pods-FitGramUITests";
 			path = "Target Support Files/Pods-FitGramUITests";
-			sourceTree = "<group>";
-		};
-		CD8C8EF655B3D3E002188CC522854222 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5C858855670EEE39DCF2B51BEE79F80A /* SwipeableTabBarController */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,41 +299,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F6324E3F9D3F85D2DD4CF5E270363480 /* Headers */ = {
+		9ACC2C8659FBFD372288708C430F3875 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9C4254613B832E38FC887B9F4CCEE33 /* Pods-FitGram-umbrella.h in Headers */,
+				B35D8F6720F90F99EA25564AF03A60E9 /* CBFlashyTabBarController-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD2CE4548CC8CBE6159E405DFD41012A /* Headers */ = {
+		E19C158BAA699229A85FA0519EBAB970 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33A031880169A77B5A4406D62134738D /* SwipeableTabBarController-umbrella.h in Headers */,
+				827B109989A22A31B2726549F72090AA /* Pods-FitGram-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		15B6D1C1FB4BD6CE0B682AFC30763BDA /* Pods-FitGram */ = {
+		0B0075ECDDD3E84DBAD74C982430745B /* Pods-FitGram */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B139865A0F3E332BA30D6FD8987A70C /* Build configuration list for PBXNativeTarget "Pods-FitGram" */;
+			buildConfigurationList = A2B6BE2081CF7593A79CBD5648129ED0 /* Build configuration list for PBXNativeTarget "Pods-FitGram" */;
 			buildPhases = (
-				CCF3E8756D2D7DC9436802DA5E62FE53 /* Sources */,
-				7B03FFC7BAD0B7D9BC42932BE1EFC6B1 /* Frameworks */,
-				F6324E3F9D3F85D2DD4CF5E270363480 /* Headers */,
+				7A06DB2FF0A91015D4D9302E4504B4F4 /* Sources */,
+				8FD6C87AB80B68F570266018C35F240E /* Frameworks */,
+				E19C158BAA699229A85FA0519EBAB970 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8CF64B6685FC7E3A3276CA4AE96D3A1D /* PBXTargetDependency */,
+				21FF3628DA22B301D3509BE6CB3CAC46 /* PBXTargetDependency */,
 			);
 			name = "Pods-FitGram";
 			productName = "Pods-FitGram";
-			productReference = 015AAFC76673F24E89E35DAB7CA36A1B /* Pods_FitGram.framework */;
+			productReference = F0D51CA6B27B56505C4DB93B9A28E565 /* Pods_FitGram.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		307DEA1CA5326A1CBA5A7C0D4F16E235 /* Pods-FitGramTests */ = {
@@ -348,7 +351,7 @@
 			);
 			name = "Pods-FitGramTests";
 			productName = "Pods-FitGramTests";
-			productReference = 297CBD9D0363E59C815558A2F69AFC2E /* Pods_FitGramTests.framework */;
+			productReference = E75C0CD875CEEF2A8EAD77CCE2924B17 /* Pods_FitGramTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		4363F1AACE177579A46DA2389CB406E7 /* Pods-FitGramUITests */ = {
@@ -366,24 +369,24 @@
 			);
 			name = "Pods-FitGramUITests";
 			productName = "Pods-FitGramUITests";
-			productReference = A4FF9BFC5F7FB86B943C3CFDF3596152 /* Pods_FitGramUITests.framework */;
+			productReference = 017A0E0406814AF23EE6F69E4065DD5A /* Pods_FitGramUITests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		F1033A24787A721B12E6E320C8D7C9D1 /* SwipeableTabBarController */ = {
+		67EF7FDADA045E28AB5E2F9BDF37DAC8 /* CBFlashyTabBarController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 779AB076C2FFA3B0AE49A480A8A35BE9 /* Build configuration list for PBXNativeTarget "SwipeableTabBarController" */;
+			buildConfigurationList = 64A751D6AC997A5F77594CD5EB64C454 /* Build configuration list for PBXNativeTarget "CBFlashyTabBarController" */;
 			buildPhases = (
-				CE96E658AC696ABFB97700E270A87FC1 /* Sources */,
-				6111C05F3124AD719688C53B5315BF19 /* Frameworks */,
-				FD2CE4548CC8CBE6159E405DFD41012A /* Headers */,
+				C0C7F7AD5E0113A0FD78732B9124BC1C /* Sources */,
+				BB1AF99AC1A6A529D2803AD3E7573511 /* Frameworks */,
+				9ACC2C8659FBFD372288708C430F3875 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SwipeableTabBarController;
-			productName = SwipeableTabBarController;
-			productReference = D55C0AB221FF5BD22BCF19E0C41899F1 /* SwipeableTabBarController.framework */;
+			name = CBFlashyTabBarController;
+			productName = CBFlashyTabBarController;
+			productReference = 412B440EBE9AE7BE50806C2732E59F92 /* CBFlashyTabBarController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -403,14 +406,14 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 5B8948B0EE12D42012C061846F346AA9 /* Products */;
+			productRefGroup = 26487EB135A8EEF7D77B22A79BB0ADAB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				15B6D1C1FB4BD6CE0B682AFC30763BDA /* Pods-FitGram */,
+				67EF7FDADA045E28AB5E2F9BDF37DAC8 /* CBFlashyTabBarController */,
+				0B0075ECDDD3E84DBAD74C982430745B /* Pods-FitGram */,
 				307DEA1CA5326A1CBA5A7C0D4F16E235 /* Pods-FitGramTests */,
 				4363F1AACE177579A46DA2389CB406E7 /* Pods-FitGramUITests */,
-				F1033A24787A721B12E6E320C8D7C9D1 /* SwipeableTabBarController */,
 			);
 		};
 /* End PBXProject section */
@@ -432,47 +435,48 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CCF3E8756D2D7DC9436802DA5E62FE53 /* Sources */ = {
+		7A06DB2FF0A91015D4D9302E4504B4F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCC922A7761927FADD7B670EB71384D6 /* Pods-FitGram-dummy.m in Sources */,
+				358F10DF7CA10C297FDB6E705EE27CD7 /* Pods-FitGram-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CE96E658AC696ABFB97700E270A87FC1 /* Sources */ = {
+		C0C7F7AD5E0113A0FD78732B9124BC1C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E7558F02028D9C295876410A846C5B4 /* SwipeableTabBarController-dummy.m in Sources */,
-				95EC372EAB79F4FCF1F1AAAD9C8719F6 /* SwipeableTabBarController.swift in Sources */,
-				355ACDB0AD602E4E62CD1B35319CA7A5 /* SwipeAnimationType.swift in Sources */,
-				B4CEC789A960A24BA9E76253C9BE6C51 /* SwipeInteractor.swift in Sources */,
-				C91E9E71CA93EA6435D953D582EBBD83 /* SwipeTransitionAnimator.swift in Sources */,
-				F92D569667B4AB88F86EA4DC22756037 /* SwipeTransitioningProtocol.swift in Sources */,
-				35DDD2375707F7041690B3303D7A88F5 /* UIKit+Extensions.swift in Sources */,
+				F1CAE8A576C0E2743844A2C1BEB4D64C /* CBFlashyTabBar.swift in Sources */,
+				84F9B44E65EF4098BF3BA3C9E43DEE46 /* CBFlashyTabBarController-dummy.m in Sources */,
+				D2A571D32B7B919B6420E857EC071231 /* CBFlashyTabBarController.swift in Sources */,
+				AF57AC975B047EAB24EA3CB0DDBD32B5 /* CBTabBarButton.swift in Sources */,
+				32087815A10088DF3023A84CBEA7A05A /* CBTabItemAnimation.swift in Sources */,
+				1C2A65597145DE4B9306C5486F71457A /* CBTabItemBasicAnimation.swift in Sources */,
+				91C7D97F3533A1A16B0F842A5C38BEAB /* CBTabItemDeselectAnimation.swift in Sources */,
+				1DEBBAD30E78C363393E411B9759640A /* CBTabItemSelectAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8CF64B6685FC7E3A3276CA4AE96D3A1D /* PBXTargetDependency */ = {
+		21FF3628DA22B301D3509BE6CB3CAC46 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = SwipeableTabBarController;
-			target = F1033A24787A721B12E6E320C8D7C9D1 /* SwipeableTabBarController */;
-			targetProxy = BC4D01DB638BC230E2552EE1CD4799FA /* PBXContainerItemProxy */;
+			name = CBFlashyTabBarController;
+			target = 67EF7FDADA045E28AB5E2F9BDF37DAC8 /* CBFlashyTabBarController */;
+			targetProxy = B3B451AEDAFA82213F9A33F5B5B4DA74 /* PBXContainerItemProxy */;
 		};
 		AB6F8428E176533DCAE73E5C90150C13 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-FitGram";
-			target = 15B6D1C1FB4BD6CE0B682AFC30763BDA /* Pods-FitGram */;
+			target = 0B0075ECDDD3E84DBAD74C982430745B /* Pods-FitGram */;
 			targetProxy = 9F209CC7172B2EB7382643AB8A93C1BA /* PBXContainerItemProxy */;
 		};
 		F4C06E7F0D94BB7A82C0034A78CB6A7A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-FitGram";
-			target = 15B6D1C1FB4BD6CE0B682AFC30763BDA /* Pods-FitGram */;
+			target = 0B0075ECDDD3E84DBAD74C982430745B /* Pods-FitGram */;
 			targetProxy = 0F6BC12F37F7AC39756C24D74D1D6325 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -536,10 +540,11 @@
 			};
 			name = Release;
 		};
-		1066EA35593E14A25C8500D59FF3C523 /* Release */ = {
+		3321823D461DB96437A401721D719491 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8593297B4FDCEEEE165125C910751C53 /* SwipeableTabBarController.xcconfig */;
+			baseConfigurationReference = 0DE270C9904F87B6AEB6C8B0E733FCCC /* CBFlashyTabBarController.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -549,55 +554,18 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwipeableTabBarController/SwipeableTabBarController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwipeableTabBarController/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/CBFlashyTabBarController/CBFlashyTabBarController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CBFlashyTabBarController/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/SwipeableTabBarController/SwipeableTabBarController.modulemap";
-				PRODUCT_MODULE_NAME = SwipeableTabBarController;
-				PRODUCT_NAME = SwipeableTabBarController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		181EEE9640D74B7038DEBAAE0C5C1C43 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8593297B4FDCEEEE165125C910751C53 /* SwipeableTabBarController.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwipeableTabBarController/SwipeableTabBarController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwipeableTabBarController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwipeableTabBarController/SwipeableTabBarController.modulemap";
-				PRODUCT_MODULE_NAME = SwipeableTabBarController;
-				PRODUCT_NAME = SwipeableTabBarController;
+				MODULEMAP_FILE = "Target Support Files/CBFlashyTabBarController/CBFlashyTabBarController.modulemap";
+				PRODUCT_MODULE_NAME = CBFlashyTabBarController;
+				PRODUCT_NAME = CBFlashyTabBarController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -641,46 +609,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		45885C43A99B7EF0342AB4807BCC1243 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 009F09C40500FF895EA64E121AD42FD7 /* Pods-FitGram.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-FitGram/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FitGram/Pods-FitGram.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -790,83 +718,7 @@
 			};
 			name = Debug;
 		};
-		9FB586525D82B62A55C15772C0582012 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 760BAC3B9B9279D207BF8E51EBEFC792 /* Pods-FitGramTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-FitGramTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FitGramTests/Pods-FitGramTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		B73CACD83BA1062DF5741B5D4020F7DB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCDB7830B0132DF871491F1D1CF484E5 /* Pods-FitGramUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-FitGramUITests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FitGramUITests/Pods-FitGramUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		E1C6097D59AD5231326C55A123349B70 /* Debug */ = {
+		8A309C3EA0E6D3907018A8A033D52290 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B1809BF18740C0F0C5A35A0D51DB47FC /* Pods-FitGram.debug.xcconfig */;
 			buildSettings = {
@@ -906,6 +758,160 @@
 			};
 			name = Debug;
 		};
+		9FB586525D82B62A55C15772C0582012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 760BAC3B9B9279D207BF8E51EBEFC792 /* Pods-FitGramTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FitGramTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FitGramTests/Pods-FitGramTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A21A1DEB157BE2B59736A2476D99D379 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DE270C9904F87B6AEB6C8B0E733FCCC /* CBFlashyTabBarController.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CBFlashyTabBarController/CBFlashyTabBarController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CBFlashyTabBarController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CBFlashyTabBarController/CBFlashyTabBarController.modulemap";
+				PRODUCT_MODULE_NAME = CBFlashyTabBarController;
+				PRODUCT_NAME = CBFlashyTabBarController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B73CACD83BA1062DF5741B5D4020F7DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCDB7830B0132DF871491F1D1CF484E5 /* Pods-FitGramUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FitGramUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FitGramUITests/Pods-FitGramUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FD539D58E4773B93F50C87F5C2AAF8EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 009F09C40500FF895EA64E121AD42FD7 /* Pods-FitGram.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FitGram/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FitGram/Pods-FitGram.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -927,20 +933,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B139865A0F3E332BA30D6FD8987A70C /* Build configuration list for PBXNativeTarget "Pods-FitGram" */ = {
+		64A751D6AC997A5F77594CD5EB64C454 /* Build configuration list for PBXNativeTarget "CBFlashyTabBarController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E1C6097D59AD5231326C55A123349B70 /* Debug */,
-				45885C43A99B7EF0342AB4807BCC1243 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		779AB076C2FFA3B0AE49A480A8A35BE9 /* Build configuration list for PBXNativeTarget "SwipeableTabBarController" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				181EEE9640D74B7038DEBAAE0C5C1C43 /* Debug */,
-				1066EA35593E14A25C8500D59FF3C523 /* Release */,
+				3321823D461DB96437A401721D719491 /* Debug */,
+				A21A1DEB157BE2B59736A2476D99D379 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -950,6 +947,15 @@
 			buildConfigurations = (
 				9FB586525D82B62A55C15772C0582012 /* Debug */,
 				42382C0A40EF5E876C0CA2B3691D37FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2B6BE2081CF7593A79CBD5648129ED0 /* Build configuration list for PBXNativeTarget "Pods-FitGram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A309C3EA0E6D3907018A8A033D52290 /* Debug */,
+				FD539D58E4773B93F50C87F5C2AAF8EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

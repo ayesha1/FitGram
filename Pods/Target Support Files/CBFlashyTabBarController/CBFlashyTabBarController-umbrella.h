@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double SwipeableTabBarControllerVersionNumber;
-FOUNDATION_EXPORT const unsigned char SwipeableTabBarControllerVersionString[];
+FOUNDATION_EXPORT double CBFlashyTabBarControllerVersionNumber;
+FOUNDATION_EXPORT const unsigned char CBFlashyTabBarControllerVersionString[];
 

@@ -1,9 +1,9 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## SwipeableTabBarController
+## CBFlashyTabBarController
 
-Copyright (c) 2017 marcosgriselli <marcosgriselli@gmail.com>
+Copyright (c) 2018 Cuberto Design <info@cuberto.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

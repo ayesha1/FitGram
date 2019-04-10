@@ -1,16 +1,16 @@
 PODS:
-  - SwipeableTabBarController (2.1.0)
+  - CBFlashyTabBarController (0.8.3)
 
 DEPENDENCIES:
-  - SwipeableTabBarController
+  - CBFlashyTabBarController
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - SwipeableTabBarController
+    - CBFlashyTabBarController
 
 SPEC CHECKSUMS:
-  SwipeableTabBarController: e6445066473bb548cc74f660c0ebc04d609cde67
+  CBFlashyTabBarController: bc6b11dd4cbc9b54785c8944156e2f4d4f03b088
 
-PODFILE CHECKSUM: 9d22be6ae222f3a67f7591c73e40d7ca38c29278
+PODFILE CHECKSUM: 332aeeeb365a3db89bb12ed400b570586f6097de
 
 COCOAPODS: 1.5.3
