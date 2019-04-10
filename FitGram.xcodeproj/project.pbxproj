@@ -251,13 +251,16 @@
 				TargetAttributes = {
 					6A94450922480D3000980F88 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					6A94451D22480D3300980F88 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 6A94450922480D3000980F88;
 					};
 					6A94452822480D3300980F88 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 6A94450922480D3000980F88;
 					};
 				};
@@ -569,7 +572,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ayeshakhan.FitGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -588,7 +591,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ayeshakhan.FitGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -609,7 +612,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ayeshakhan.FitGramTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitGram.app/FitGram";
 			};
@@ -631,7 +634,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ayeshakhan.FitGramTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitGram.app/FitGram";
 			};
@@ -652,7 +655,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ayeshakhan.FitGramUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = FitGram;
 			};
@@ -673,7 +676,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ayeshakhan.FitGramUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = FitGram;
 			};

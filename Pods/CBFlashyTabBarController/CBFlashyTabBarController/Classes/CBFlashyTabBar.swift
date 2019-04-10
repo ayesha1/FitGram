@@ -24,7 +24,7 @@ open class CBFlashyTabBar: UITabBar {
                 buttons.forEach { $0.setSelected(false, animated: false) }
                 return
             }
-            guard let index = items?.index(of: newValue),
+            guard let index = items?.firstIndex(of: newValue),
                 index != NSNotFound else {
                     return
             }
@@ -104,7 +104,7 @@ open class CBFlashyTabBar: UITabBar {
     }
 
     @objc private func btnPressed(sender: CBTabBarButton) {
-        guard let index = buttons.index(of: sender),
+        guard let index = buttons.firstIndex(of: sender),
               index != NSNotFound,
               let item = items?[index] else {
             return
