@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double TabbyVersionNumber;
-FOUNDATION_EXPORT const unsigned char TabbyVersionString[];
+FOUNDATION_EXPORT double CBFlashyTabBarControllerVersionNumber;
+FOUNDATION_EXPORT const unsigned char CBFlashyTabBarControllerVersionString[];
 

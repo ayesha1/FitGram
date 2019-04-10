@@ -8,34 +8,32 @@
 
 import UIKit
 
-class ChallengeViewController: GeneralController {
+class ChallengeViewController: UIViewController {
+    var lblTitle: UILabel = {
+        var label = UILabel()
+        label.textColor = #colorLiteral(red: 0.1579992771, green: 0.1818160117, blue: 0.5072338581, alpha: 1)
+        label.font = UIFont.systemFont(ofSize: 55.0, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        view.backgroundColor = .cyan
-
+        view.backgroundColor = UIColor.white
+        lblTitle.text = tabBarItem.title
+        view.addSubview(lblTitle)
+        
+        lblTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        lblTitle.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        view.setNeedsLayout()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func inverseColor() {
+        view.backgroundColor = lblTitle.textColor
+        lblTitle.textColor = UIColor.white
     }
-    */
-
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return view.backgroundColor == UIColor.white ? .default : .lightContent
+    }
 }

@@ -5,8 +5,7 @@ target 'FitGram' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for FitGram
-    pod 'Tabby', git: 'https://github.com/hyperoslo/Tabby.git'
+    pod 'CBFlashyTabBarController'
 
   target 'FitGramTests' do
     inherit! :search_paths

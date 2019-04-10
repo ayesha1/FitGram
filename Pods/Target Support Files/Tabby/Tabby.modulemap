@@ -1,6 +1,0 @@
-framework module Tabby {
-  umbrella header "Tabby-umbrella.h"
-
-  export *
-  module * { export * }
-}

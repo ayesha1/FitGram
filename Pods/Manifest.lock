@@ -1,21 +1,16 @@
 PODS:
-  - Tabby (0.2.0)
+  - CBFlashyTabBarController (0.8.3)
 
 DEPENDENCIES:
-  - Tabby (from `https://github.com/hyperoslo/Tabby.git`)
+  - CBFlashyTabBarController
 
-EXTERNAL SOURCES:
-  Tabby:
-    :git: https://github.com/hyperoslo/Tabby.git
-
-CHECKOUT OPTIONS:
-  Tabby:
-    :commit: d41befad6cb4add7f13e0d04aaae185a2dc80b32
-    :git: https://github.com/hyperoslo/Tabby.git
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CBFlashyTabBarController
 
 SPEC CHECKSUMS:
-  Tabby: 667812a8e5fe79ec59076abecd4ef52204263838
+  CBFlashyTabBarController: bc6b11dd4cbc9b54785c8944156e2f4d4f03b088
 
-PODFILE CHECKSUM: 2b823282884218f550a794b3c64600fe444ff83c
+PODFILE CHECKSUM: 332aeeeb365a3db89bb12ed400b570586f6097de
 
 COCOAPODS: 1.5.3
