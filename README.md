@@ -80,7 +80,7 @@ Optional:
 ## Schema
 ### Model
 
-| Propery       | Type          | Despcription  |
+| Propery       | Type          | Description  |
 | ------------- |:-------------:| -------------:|
 |  objectId    | String | unique id for the user post (default field) |
 |  author    |    Pointer to User	   | image author |
