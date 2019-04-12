@@ -75,3 +75,13 @@ Optional:
 
 ### [BONUS] Interactive Prototype
 <img src="https://media.giphy.com/media/1Ye8AegwWymakoKwpc/giphy.gif" width=200>
+
+
+### Schema
+** Model
+
+| Propery       | Type          | Despcription  |
+| ------------- |:-------------:| -----:|
+|  objectId    | String | unique id for the user post (default field) |
+|      |       |   |
+|   |  nat      |    |
