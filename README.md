@@ -77,8 +77,8 @@ Optional:
 <img src="https://media.giphy.com/media/1Ye8AegwWymakoKwpc/giphy.gif" width=200>
 
 
-### Schema
-** Model
+## Schema
+### Model
 
 | Propery       | Type          | Despcription  |
 | ------------- |:-------------:| -------------:|
@@ -88,7 +88,7 @@ Optional:
 |  author    |    Pointer to User	   | image author |
 | competition  |  Boolean      |  whether won or lost challenge excercies  |
 
-** Model
+### Networking
 * Get calores burned
 * Get distanceWalkingRunning
 * Get heartRate
