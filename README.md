@@ -75,3 +75,48 @@ Optional:
 
 ### [BONUS] Interactive Prototype
 <img src="https://media.giphy.com/media/1Ye8AegwWymakoKwpc/giphy.gif" width=200>
+
+
+## Schema
+### Model
+
+| Propery       | Type          | Description  |
+| ------------- |:-------------:| -------------:|
+|  objectId    | String | unique id for the user post (default field) |
+|  author    |    Pointer to User	   | image author |
+| updatedAt  |  CalorieCount      |  calories after last excercise  |
+|  author    |    Pointer to User	   | image author |
+| competition  |  Boolean      |  whether won or lost challenge excercies  |
+
+### Networking
+* Get calores burned
+* Get distanceWalkingRunning
+* Get heartRate
+```
+ let infoToWrite = Set([
+                HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
+                HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+                HKObjectType.quantityType(forIdentifier: .heartRate)!,
+                HKObjectType.workoutType()
+                ])
+            
+            
+            
+            healthStore.requestAuthorization(toShare: infoToWrite,
+                                             read: infoToRead,
+                                             completion: { (success, error) in
+                                                self.delegate?.workout(manager: self,
+                                                                       didAuthorizeAccess: success,
+                                                                       error: error)
+                                                
+            })
+        } else {
+        
+        healthStore.requestAuthorization(toShare: infoToWrite,
+                                             read: infoToRead,
+                                             completion: { (success, error) in
+                                                self.delegate?.workout(manager: self,
+}
+```
+
+
