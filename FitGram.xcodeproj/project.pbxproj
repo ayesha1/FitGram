@@ -17,6 +17,7 @@
 		6A94451822480D3300980F88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A94451622480D3300980F88 /* LaunchScreen.storyboard */; };
 		6A94452322480D3300980F88 /* FitGramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A94452222480D3300980F88 /* FitGramTests.swift */; };
 		6A94452E22480D3300980F88 /* FitGramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A94452D22480D3300980F88 /* FitGramUITests.swift */; };
+		6ADD6EE5225E336000B63B3E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADD6EE4225E336000B63B3E /* HealthKit.framework */; };
 		90963D2075177A28F9D3D239 /* Pods_FitGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D72CD36E123B07FE86CA24A8 /* Pods_FitGram.framework */; };
 		A939F42BF0B148FA08CA4485 /* Pods_FitGramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D331D5ABE369A076D621F0 /* Pods_FitGramTests.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,8 @@
 		6A94452922480D3300980F88 /* FitGramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitGramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A94452D22480D3300980F88 /* FitGramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitGramUITests.swift; sourceTree = "<group>"; };
 		6A94452F22480D3300980F88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6ADD6EE3225E336000B63B3E /* FitGram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitGram.entitlements; sourceTree = "<group>"; };
+		6ADD6EE4225E336000B63B3E /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		74F0695CB68600898C31E363 /* Pods-FitGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGram.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitGram/Pods-FitGram.release.xcconfig"; sourceTree = "<group>"; };
 		7AE142BEA2F1A685A2AE97C0 /* Pods-FitGramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitGramUITests/Pods-FitGramUITests.release.xcconfig"; sourceTree = "<group>"; };
 		940399A09079A09547646AE6 /* Pods_FitGramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitGramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90963D2075177A28F9D3D239 /* Pods_FitGram.framework in Frameworks */,
+				6ADD6EE5225E336000B63B3E /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +132,7 @@
 		6A94450C22480D3000980F88 /* FitGram */ = {
 			isa = PBXGroup;
 			children = (
+				6ADD6EE3225E336000B63B3E /* FitGram.entitlements */,
 				6A861C6622483EEF00D7B261 /* Controllers */,
 				6A94450D22480D3000980F88 /* AppDelegate.swift */,
 				6A94450F22480D3000980F88 /* ViewController.swift */,
@@ -172,6 +177,7 @@
 		BBBC4A2CEBC10DE6A6C161C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6ADD6EE4225E336000B63B3E /* HealthKit.framework */,
 				D72CD36E123B07FE86CA24A8 /* Pods_FitGram.framework */,
 				C3D331D5ABE369A076D621F0 /* Pods_FitGramTests.framework */,
 				940399A09079A09547646AE6 /* Pods_FitGramUITests.framework */,
@@ -252,6 +258,11 @@
 					6A94450922480D3000980F88 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					6A94451D22480D3300980F88 = {
 						CreatedOnToolsVersion = 10.1;
@@ -563,6 +574,7 @@
 			baseConfigurationReference = E2CEE7ED9E66D8DBEDDE4C26 /* Pods-FitGram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FitGram/FitGram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65QL794L6H;
 				INFOPLIST_FILE = FitGram/Info.plist;
@@ -582,6 +594,7 @@
 			baseConfigurationReference = 74F0695CB68600898C31E363 /* Pods-FitGram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FitGram/FitGram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65QL794L6H;
 				INFOPLIST_FILE = FitGram/Info.plist;
