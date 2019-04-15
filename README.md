@@ -118,5 +118,9 @@ Optional:
                                                 self.delegate?.workout(manager: self,
 }
 ```
+### Video Progress
+
+<img src='http://g.recordit.co/zoApnfAhHc.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 
 
