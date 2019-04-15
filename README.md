@@ -6,6 +6,7 @@
 1. [Product Spec](#Product-Spec)
 1. [Wireframes](#Wireframes)
 1. [Schema](#Schema)
+1. [Video Progress] (#Video Progress)
 
 ## Overview
 ### Description
@@ -120,7 +121,7 @@ Optional:
 ```
 ### Video Progress
 
-<img src='http://g.recordit.co/zoApnfAhHc.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/trmHw68ddp.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 
