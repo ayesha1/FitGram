@@ -46,9 +46,9 @@
 		08D493BD7918F5C714641236 /* Pods-FitGramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitGramTests/Pods-FitGramTests.release.xcconfig"; sourceTree = "<group>"; };
 		4026B0B4A0A30922BCDAAEB9 /* Pods-FitGramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitGramTests/Pods-FitGramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D5C0C86127AECE77FBF174D /* Pods-FitGramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitGramUITests/Pods-FitGramUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		6A861C672248425000D7B261 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		6A861C692248426100D7B261 /* ExerciseNewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseNewsFeedViewController.swift; sourceTree = "<group>"; };
-		6A861C6B2248426B00D7B261 /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
+		6A861C672248425000D7B261 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../ProfileViewController.swift; sourceTree = "<group>"; };
+		6A861C692248426100D7B261 /* ExerciseNewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExerciseNewsFeedViewController.swift; path = ../ExerciseNewsFeedViewController.swift; sourceTree = "<group>"; };
+		6A861C6B2248426B00D7B261 /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChallengeViewController.swift; path = ../ChallengeViewController.swift; sourceTree = "<group>"; };
 		6A94450A22480D3000980F88 /* FitGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A94450D22480D3000980F88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A94450F22480D3000980F88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,9 +106,7 @@
 		6A861C6622483EEF00D7B261 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6A861C672248425000D7B261 /* ProfileViewController.swift */,
-				6A861C692248426100D7B261 /* ExerciseNewsFeedViewController.swift */,
-				6A861C6B2248426B00D7B261 /* ChallengeViewController.swift */,
+				6ACF3609226677D80088EB0B /* New Group */,
 				6AADB1D12261624000290A83 /* LandingPageViewController.swift */,
 				6AADB1D32261625100290A83 /* LoginViewController.swift */,
 				6AADB1D52261625E00290A83 /* SignUpViewController.swift */,
@@ -168,6 +166,16 @@
 				6A94452F22480D3300980F88 /* Info.plist */,
 			);
 			path = FitGramUITests;
+			sourceTree = "<group>";
+		};
+		6ACF3609226677D80088EB0B /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				6A861C6B2248426B00D7B261 /* ChallengeViewController.swift */,
+				6A861C692248426100D7B261 /* ExerciseNewsFeedViewController.swift */,
+				6A861C672248425000D7B261 /* ProfileViewController.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		B05B5E56AB002A5600C8AAEB /* Pods */ = {
