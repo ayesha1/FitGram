@@ -9,6 +9,7 @@ target 'FitGram' do
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
+    pod 'PMSuperButton'
 
   target 'FitGramTests' do
     inherit! :search_paths

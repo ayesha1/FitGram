@@ -33,12 +33,14 @@ PODS:
     - GoogleUtilities/Environment
   - GTMSessionFetcher/Core (1.2.1)
   - leveldb-library (1.20)
+  - PMSuperButton (3.0.1)
 
 DEPENDENCIES:
   - CBFlashyTabBarController
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
+  - PMSuperButton
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -52,6 +54,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - leveldb-library
+    - PMSuperButton
 
 SPEC CHECKSUMS:
   CBFlashyTabBarController: bc6b11dd4cbc9b54785c8944156e2f4d4f03b088
@@ -64,7 +67,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: 273e67030e0de313e7304f6dcfa96fc5214f6c23
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  PMSuperButton: 2bef6f8659a5df969a69887f496ef309480c65eb
 
-PODFILE CHECKSUM: 0f46c79165fe809cdc71144758bfe6826669d1be
+PODFILE CHECKSUM: ad1fdaa0a04e4fa42c094d97b56e80234a313731
 
 COCOAPODS: 1.5.3
