@@ -23,7 +23,7 @@
 		6ADD6EE5225E336000B63B3E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADD6EE4225E336000B63B3E /* HealthKit.framework */; };
 		90963D2075177A28F9D3D239 /* Pods_FitGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D72CD36E123B07FE86CA24A8 /* Pods_FitGram.framework */; };
 		A939F42BF0B148FA08CA4485 /* Pods_FitGramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D331D5ABE369A076D621F0 /* Pods_FitGramTests.framework */; };
-		D8156F9B2268F4E100C54C9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8156F9A2268F4E000C54C9D /* GoogleService-Info.plist */; };
+		D80C8CD3226A977600064269 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D80C8CD2226A977600064269 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +72,7 @@
 		940399A09079A09547646AE6 /* Pods_FitGramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitGramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D331D5ABE369A076D621F0 /* Pods_FitGramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitGramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72CD36E123B07FE86CA24A8 /* Pods_FitGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8156F9A2268F4E000C54C9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D80C8CD2226A977600064269 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E2CEE7ED9E66D8DBEDDE4C26 /* Pods-FitGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitGram/Pods-FitGram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,8 +147,8 @@
 				6A94450D22480D3000980F88 /* AppDelegate.swift */,
 				6A94451422480D3300980F88 /* Assets.xcassets */,
 				6A94451622480D3300980F88 /* LaunchScreen.storyboard */,
-				D8156F9A2268F4E000C54C9D /* GoogleService-Info.plist */,
 				6A94451922480D3300980F88 /* Info.plist */,
+				D80C8CD2226A977600064269 /* GoogleService-Info.plist */,
 			);
 			path = FitGram;
 			sourceTree = "<group>";
@@ -322,7 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A94451822480D3300980F88 /* LaunchScreen.storyboard in Resources */,
-				D8156F9B2268F4E100C54C9D /* GoogleService-Info.plist in Resources */,
+				D80C8CD3226A977600064269 /* GoogleService-Info.plist in Resources */,
 				6A94451522480D3300980F88 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,7 +614,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ayeshakhan.FitGram;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nathanabegaz.FitGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -634,7 +634,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ayeshakhan.FitGram;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nathanabegaz.FitGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
