@@ -28,7 +28,7 @@ class LandingPageViewController: UIViewController {
         return textView
     }()
     
-    let signUpButton: PMSuperButton = {
+    @objc let signUpButton: PMSuperButton = {
         let button = PMSuperButton()
         button.cornerRadius = 10
         button.gradientStartColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
@@ -76,14 +76,19 @@ class LandingPageViewController: UIViewController {
     }
     
     private func addTapRecognizer() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: "sendToSignUpVC")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapSignUpButton))
         tapGesture.numberOfTapsRequired = 1
         signUpButton.addGestureRecognizer(tapGesture)
-        loginButton.addGestureRecognizer(tapGesture)
     }
     
-    func sendToSignUpVC() {
-        print("send to Sign Up VC")
+    @objc func tapSignUpButton(_ sender: UIButton) {
+        print("Sign Up Button")
+        let signUpVC = SignUpViewController()
+        self.present(signUpVC, animated: true) {
+            print("Success")
+        }
+//        self.navigationController?.pushViewController(signUpVC, animated: true)
+
     }
     
     private func setupLayout() {
