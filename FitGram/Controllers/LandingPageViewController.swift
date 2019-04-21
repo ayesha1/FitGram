@@ -62,12 +62,28 @@ class LandingPageViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        setUpSubviews()
+        addTapRecognizer()
+        setupLayout()
+        
+    }
+    
+    private func setUpSubviews() {
         view.addSubview(heartImageView)
         view.addSubview(welcomeTextView)
         view.addSubview(signUpButton)
         view.addSubview(loginButton)
-        setupLayout()
-        
+    }
+    
+    private func addTapRecognizer() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: "sendToSignUpVC")
+        tapGesture.numberOfTapsRequired = 1
+        signUpButton.addGestureRecognizer(tapGesture)
+        loginButton.addGestureRecognizer(tapGesture)
+    }
+    
+    func sendToSignUpVC() {
+        print("send to Sign Up VC")
     }
     
     private func setupLayout() {
@@ -90,6 +106,5 @@ class LandingPageViewController: UIViewController {
         loginButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 40).isActive = true
         loginButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         loginButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-
     }
 }
