@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>9958477799-uds220mv0nti8aammlae1rl8625c08f2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.9958477799-uds220mv0nti8aammlae1rl8625c08f2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD_xF1SJRYWSVh3GDO4OqZ9EKlDD8iKoSg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>9958477799</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ayeshakhan.FitGram</string>
+	<key>PROJECT_ID</key>
+	<string>fitgram-2436a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fitgram-2436a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:9958477799:ios:1db0f6922ccbdc48</string>
+	<key>DATABASE_URL</key>
+	<string>https://fitgram-2436a.firebaseio.com</string>
+</dict>
+</plist>

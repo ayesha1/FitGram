@@ -6,6 +6,10 @@ target 'FitGram' do
   use_frameworks!
 
     pod 'CBFlashyTabBarController'
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
+    pod 'PMSuperButton'
 
   target 'FitGramTests' do
     inherit! :search_paths
