@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import PMSuperButton
 class SignUpViewController: UIViewController {
     
     let inputsContainerView: UIView = {
@@ -20,13 +20,18 @@ class SignUpViewController: UIViewController {
         return view
     }()
     
-    lazy var loginRegisterButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
-        button.setTitle("Register", for: UIControl.State())
+    lazy var loginRegisterButton: PMSuperButton = {
+        let button = PMSuperButton()
+        button.cornerRadius = 10
+        button.gradientStartColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
+        button.gradientEndColor = #colorLiteral(red: 0.6959176508, green: 0.1678331792, blue: 0.1667780876, alpha: 1)
+        button.gradientEnabled = true
+        button.gradientHorizontal = true
+        button.ripple = true
+        button.setTitle("Register", for: .normal)
+        button.titleLabel?.font = UIFont(name: "KohinoorBangla-Light", size: 25)
+        button.frame.size = CGSize(width: 500, height: 60)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(UIColor.white, for: UIControl.State())
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         
         button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
         
@@ -91,7 +96,7 @@ class SignUpViewController: UIViewController {
     
     let emailSeparatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.909470737, green: 0.4800739288, blue: 0.6430870891, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
