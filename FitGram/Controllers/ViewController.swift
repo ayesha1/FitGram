@@ -13,18 +13,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setupTabBar()
-        
-        present(LoginController(), animated: true, completion: nil)
         setupTabBar()
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",style: .plain, target: self, action: #selector(handleLogout))
+
     }
     
-    @objc func handleLogout()
-    {
-        let loginController = LoginController()
-        //present(loginController, animated: true, completion: nil)
-    }
     
     func setupTabBar() {
         let exerciseNewsFeedVC = ExerciseNewsFeedViewController()

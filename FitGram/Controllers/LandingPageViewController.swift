@@ -77,8 +77,11 @@ class LandingPageViewController: UIViewController {
     
     private func addTapRecognizer() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapSignUpButton))
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(self.tapLoginButton(_:)))
         tapGesture.numberOfTapsRequired = 1
         signUpButton.addGestureRecognizer(tapGesture)
+        loginButton.addGestureRecognizer(tapGesture2)
+        
     }
     
     @objc func tapSignUpButton(_ sender: UIButton) {
@@ -88,8 +91,17 @@ class LandingPageViewController: UIViewController {
             print("Success")
         }
 //        self.navigationController?.pushViewController(signUpVC, animated: true)
-
     }
+    
+    @objc func tapLoginButton(_ sender: UIButton) {
+        print("Login Button")
+        let loginVC = LoginController()
+        self.present(loginVC, animated: true) {
+            print("Success")
+        }
+        //        self.navigationController?.pushViewController(signUpVC, animated: true)
+    }
+    
     
     private func setupLayout() {
         heartImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
