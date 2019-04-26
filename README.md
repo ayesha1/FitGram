@@ -124,5 +124,7 @@ Optional:
 <img src='http://g.recordit.co/trmHw68ddp.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
+* Sign UP
+<img src='https://media.giphy.com/media/dAcHmHjRFDxieKtHmu/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
