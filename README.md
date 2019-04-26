@@ -25,7 +25,8 @@ This app lets fitness become more social with allowing you and your friends to s
 
 **Required Must-have Stories**
 
-* User logs in to access previous workouts and preference settings
+* ~User logs in to app~
+* User access previous workouts and preference settings
 * User can add friends and challenge them to a workout
 * User can see their workouts and their friends workouts.
 * Profile pages for each user
