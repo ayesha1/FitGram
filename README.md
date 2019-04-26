@@ -125,6 +125,11 @@ Optional:
 
 
 * Sign UP
-<img src='https://media.giphy.com/media/dAcHmHjRFDxieKtHmu/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://media.giphy.com/media/S93nS3Tdb4mgexmivX/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+* Login In
+<img src='https://media.giphy.com/media/kdEndvncwaeBwKUToQ/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
 
 
