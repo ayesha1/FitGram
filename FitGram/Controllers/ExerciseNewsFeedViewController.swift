@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import HealthKit
+
+let healthKitStore: HKHealthStore = HKHealthStore()
 
 class ExerciseNewsFeedViewController: UIViewController {
     var lblTitle: UILabel = {
@@ -36,4 +39,10 @@ class ExerciseNewsFeedViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return view.backgroundColor == UIColor.white ? .default : .lightContent
     }
+    
+//    func authorizeHealthKitinApp() {
+//        let healthKitTypesToRead: Set<HKObjectType> = [
+//            HKObjectType.characteristicType(forIdentifier: HKQua)
+//        ]
+//    }
 }

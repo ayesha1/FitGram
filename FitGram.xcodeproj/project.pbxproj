@@ -142,6 +142,7 @@
 		6A94450C22480D3000980F88 /* FitGram */ = {
 			isa = PBXGroup;
 			children = (
+				6AC9C781226C2CA700A19D7B /* New Group */,
 				6ADD6EE3225E336000B63B3E /* FitGram.entitlements */,
 				6A861C6622483EEF00D7B261 /* Controllers */,
 				6A94450D22480D3000980F88 /* AppDelegate.swift */,
@@ -169,6 +170,13 @@
 				6A94452F22480D3300980F88 /* Info.plist */,
 			);
 			path = FitGramUITests;
+			sourceTree = "<group>";
+		};
+		6AC9C781226C2CA700A19D7B /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		6ACF3609226677D80088EB0B /* Tabs */ = {
