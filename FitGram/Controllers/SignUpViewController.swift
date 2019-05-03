@@ -67,6 +67,8 @@ class SignUpViewController: UIViewController {
                 }
                 
                 print("Saved user successfully into Firebase db")
+                let TabVC = ViewController(nibName: "tabVC", bundle: nil)
+                self.present(TabVC, animated: true, completion: nil)
                 
             })
             

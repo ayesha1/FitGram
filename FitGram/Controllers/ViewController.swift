@@ -29,7 +29,8 @@ class ViewController: UIViewController {
         let tabBarController = CBFlashyTabBarController()
         tabBarController.viewControllers = [exerciseNewsFeedVC, challengeVC, profileVC]
         //        navigationController?.pushViewController(tabBarController, animated: true)
-        self.present(tabBarController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(tabBarController, animated: true)
+//        self.present(tabBarController, animated: true, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

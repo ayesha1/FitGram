@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>9958477799-uds220mv0nti8aammlae1rl8625c08f2.apps.googleusercontent.com</string>
+	<string>9958477799-9sna3rj2qcd6bjfni5s6r4p1o0elvtf9.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.9958477799-uds220mv0nti8aammlae1rl8625c08f2</string>
+	<string>com.googleusercontent.apps.9958477799-9sna3rj2qcd6bjfni5s6r4p1o0elvtf9</string>
 	<key>API_KEY</key>
 	<string>AIzaSyD_xF1SJRYWSVh3GDO4OqZ9EKlDD8iKoSg</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ayeshakhan.FitGram</string>
+	<string>com.nathanabegaz.FitGram</string>
 	<key>PROJECT_ID</key>
 	<string>fitgram-2436a</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:9958477799:ios:1db0f6922ccbdc48</string>
+	<string>1:9958477799:ios:657b5a99af603c46</string>
 	<key>DATABASE_URL</key>
 	<string>https://fitgram-2436a.firebaseio.com</string>
 </dict>

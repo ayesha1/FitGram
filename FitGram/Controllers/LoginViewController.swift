@@ -54,10 +54,13 @@ class LoginController: UIViewController {
             }
             
             //successfully logged in our user
-            let viewController = ViewController()
-            self.present(viewController, animated: true) {
                 print("Success")
-            }
+                let TabVC = ViewController()
+                let topViewController = UIApplication.shared.keyWindow?.rootViewController
+                DispatchQueue.main.async {
+                    topViewController?.present(TabVC, animated: true, completion: nil)
+                }
+            
             
         })
         
