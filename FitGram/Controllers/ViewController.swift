@@ -7,33 +7,32 @@
 //
 
 import UIKit
-import CBFlashyTabBarController
 
-class ViewController: UIViewController {
+class ViewController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupTabBar()
+    }
+    
     func setupTabBar() {
-
         let exerciseNewsFeedVC = ExerciseNewsFeedViewController()
-        exerciseNewsFeedVC.tabBarItem = UITabBarItem(title: "NewsFeed", image: #imageLiteral(resourceName: "dumbbell"), tag: 0)
+        exerciseNewsFeedVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "dumbbell"), tag: 0)
         let challengeVC = ChallengeViewController()
-        challengeVC.tabBarItem = UITabBarItem(title: "Challenge", image: #imageLiteral(resourceName: "lightning-bolt-shadow"), tag: 0)
+        challengeVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "lightning-bolt-shadow"), tag: 0)
         let profileVC = ProfileViewController()
-        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "man-user"), tag: 0)
+        profileVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "man-user"), tag: 0)
 
-        let tabBarController = CBFlashyTabBarController()
-        tabBarController.viewControllers = [exerciseNewsFeedVC, challengeVC, profileVC]
-        navigationController?.pushViewController(tabBarController, animated: true)
-//        let topViewController = UIApplication.shared.keyWindow?.rootViewController
-//        topViewController?.present(tabBarController, animated: true, completion: nil)
-//
-////        self.present(tabBarController, animated: true, completion: nil)
+        self.viewControllers = [exerciseNewsFeedVC, challengeVC, profileVC]
     }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    
+    // UITabBarControllerDelegate method
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        print("Selected \(viewController.title!)")
     }
-
 }
 

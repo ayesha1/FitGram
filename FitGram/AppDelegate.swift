@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = ViewController()
+        window?.rootViewController = LandingPageViewController()
         window?.makeKeyAndVisible()
 
         FirebaseApp.configure()

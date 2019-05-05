@@ -81,7 +81,6 @@ class LandingPageViewController: UIViewController {
         tapGesture.numberOfTapsRequired = 1
         signUpButton.addGestureRecognizer(tapGesture)
         loginButton.addGestureRecognizer(tapGesture2)
-        
     }
     
     @objc func tapSignUpButton(_ sender: UIButton) {
