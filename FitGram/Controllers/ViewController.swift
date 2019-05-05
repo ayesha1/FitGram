@@ -21,12 +21,11 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
     
     func setupTabBar() {
         let exerciseNewsFeedVC = ExerciseNewsFeedViewController()
-        exerciseNewsFeedVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "dumbbell"), tag: 0)
+        exerciseNewsFeedVC.tabBarItem = UITabBarItem(title: "NewsFeed", image: #imageLiteral(resourceName: "dumbbell"), tag: 0)
         let challengeVC = ChallengeViewController()
-        challengeVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "lightning-bolt-shadow"), tag: 0)
+        challengeVC.tabBarItem = UITabBarItem(title: "Challenge", image: #imageLiteral(resourceName: "lightning-bolt-shadow"), tag: 0)
         let profileVC = ProfileViewController()
-        profileVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "man-user"), tag: 0)
-
+        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "man-user"), tag: 0)
         self.viewControllers = [exerciseNewsFeedVC, challengeVC, profileVC]
     }
     

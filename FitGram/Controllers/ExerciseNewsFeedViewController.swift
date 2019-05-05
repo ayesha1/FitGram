@@ -13,8 +13,8 @@ class ExerciseNewsFeedViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = UIColor.red
-        self.title = ""
+        self.view.backgroundColor = UIColor.white
+        self.title = "Exercise"
     }
     
     override func didReceiveMemoryWarning() {
