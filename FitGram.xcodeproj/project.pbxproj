@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		67421F5E8D7162D63B85AE62 /* Pods_FitGramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940399A09079A09547646AE6 /* Pods_FitGramUITests.framework */; };
+		6A75F12B227CC68C005CABED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A75F12A227CC68C005CABED /* GoogleService-Info.plist */; };
 		6A861C682248425000D7B261 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A861C672248425000D7B261 /* ProfileViewController.swift */; };
 		6A861C6A2248426100D7B261 /* ExerciseNewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A861C692248426100D7B261 /* ExerciseNewsFeedViewController.swift */; };
 		6A861C6C2248426B00D7B261 /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A861C6B2248426B00D7B261 /* ChallengeViewController.swift */; };
@@ -23,7 +24,6 @@
 		6ADD6EE5225E336000B63B3E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADD6EE4225E336000B63B3E /* HealthKit.framework */; };
 		90963D2075177A28F9D3D239 /* Pods_FitGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D72CD36E123B07FE86CA24A8 /* Pods_FitGram.framework */; };
 		A939F42BF0B148FA08CA4485 /* Pods_FitGramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D331D5ABE369A076D621F0 /* Pods_FitGramTests.framework */; };
-		D80C8CD3226A977600064269 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D80C8CD2226A977600064269 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +47,7 @@
 		08D493BD7918F5C714641236 /* Pods-FitGramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitGramTests/Pods-FitGramTests.release.xcconfig"; sourceTree = "<group>"; };
 		4026B0B4A0A30922BCDAAEB9 /* Pods-FitGramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitGramTests/Pods-FitGramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D5C0C86127AECE77FBF174D /* Pods-FitGramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitGramUITests/Pods-FitGramUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6A75F12A227CC68C005CABED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6A861C672248425000D7B261 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../ProfileViewController.swift; sourceTree = "<group>"; };
 		6A861C692248426100D7B261 /* ExerciseNewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExerciseNewsFeedViewController.swift; path = ../ExerciseNewsFeedViewController.swift; sourceTree = "<group>"; };
 		6A861C6B2248426B00D7B261 /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChallengeViewController.swift; path = ../ChallengeViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +73,6 @@
 		940399A09079A09547646AE6 /* Pods_FitGramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitGramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D331D5ABE369A076D621F0 /* Pods_FitGramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitGramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72CD36E123B07FE86CA24A8 /* Pods_FitGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D80C8CD2226A977600064269 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E2CEE7ED9E66D8DBEDDE4C26 /* Pods-FitGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitGram/Pods-FitGram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,7 +148,7 @@
 				6A94451422480D3300980F88 /* Assets.xcassets */,
 				6A94451622480D3300980F88 /* LaunchScreen.storyboard */,
 				6A94451922480D3300980F88 /* Info.plist */,
-				D80C8CD2226A977600064269 /* GoogleService-Info.plist */,
+				6A75F12A227CC68C005CABED /* GoogleService-Info.plist */,
 			);
 			path = FitGram;
 			sourceTree = "<group>";
@@ -322,8 +322,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A94451822480D3300980F88 /* LaunchScreen.storyboard in Resources */,
-				D80C8CD3226A977600064269 /* GoogleService-Info.plist in Resources */,
 				6A94451522480D3300980F88 /* Assets.xcassets in Resources */,
+				6A75F12B227CC68C005CABED /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,13 +608,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FitGram/FitGram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RVDWRT8DJ9;
+				DEVELOPMENT_TEAM = 65QL794L6H;
 				INFOPLIST_FILE = FitGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nathanabegaz.FitGram;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ayeshakhan.FitGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -628,13 +628,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FitGram/FitGram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RVDWRT8DJ9;
+				DEVELOPMENT_TEAM = 65QL794L6H;
 				INFOPLIST_FILE = FitGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nathanabegaz.FitGram;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ayeshakhan.FitGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

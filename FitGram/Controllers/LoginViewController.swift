@@ -54,10 +54,10 @@ class LoginController: UIViewController {
             }
             
             //successfully logged in our user
-            let viewController = ViewController()
-            self.present(viewController, animated: true) {
                 print("Success")
-            }
+                let TabVC = ViewController()
+                self.present(TabVC, animated: true, completion: nil)
+            
             
         })
         
