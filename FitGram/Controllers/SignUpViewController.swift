@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import PMSuperButton
 class SignUpViewController: UIViewController {
+    let db = Firestore.firestore()
     
     let inputsContainerView: UIView = {
         let view = UIView()
@@ -44,6 +45,7 @@ class SignUpViewController: UIViewController {
             return
         }
         
+        //Firebase Database
         Auth.auth().createUser(withEmail: email, password: password, completion: { (res, error) in
             
             if let error = error {
@@ -73,6 +75,18 @@ class SignUpViewController: UIViewController {
             })
             
         })
+        
+        var ref: DocumentReference? = nil
+        ref = db.collection("users").addDocument(data: [
+            "name": name,
+            "email": email
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
     }
     
     let nameTextField: UITextField = {
