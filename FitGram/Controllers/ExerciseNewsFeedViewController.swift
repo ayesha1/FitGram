@@ -8,13 +8,17 @@
 
 import UIKit
 import SnapKit
+import Firebase
 
 class ExerciseNewsFeedViewController: UIViewController {
     var roundButton = UIButton()
     weak var labelMessage: UILabel!
+    let db = Firestore.firestore()
+    let timestamp = NSDate().timeIntervalSince1970
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.white
@@ -50,6 +54,7 @@ class ExerciseNewsFeedViewController: UIViewController {
         /** Do whatever you wanna do on button click**/
         print("🤬")
         showInputDialog()
+        
 
     }
     
@@ -62,9 +67,18 @@ class ExerciseNewsFeedViewController: UIViewController {
         let confirmAction = UIAlertAction(title: "Enter", style: .default) { (_) in
             
             //getting the input values from user
-            let name = alertController.textFields?[0].text
-            let email = alertController.textFields?[1].text
+            let workoutName = alertController.textFields?[0].text
+            let caloriesBurned = alertController.textFields?[1].text
+            var ref: DocumentReference? = nil
             
+            let dataToSave: [String: Any] = ["workoutName": workoutName, "timeEntered": self.timestamp, "caloriesBurned": Int(caloriesBurned!)]
+            ref = self.db.collection("workouts").addDocument(data: dataToSave) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    print("Document added with ID: \(ref!.documentID)")
+                }
+            }
             
         }
         

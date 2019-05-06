@@ -8,6 +8,8 @@ target 'FitGram' do
     pod 'CBFlashyTabBarController'
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
+    pod 'Firebase/Core'
+    pod 'Firebase/Firestore'
     pod 'Firebase/Storage'
     pod 'PMSuperButton'
     pod 'SnapKit'
