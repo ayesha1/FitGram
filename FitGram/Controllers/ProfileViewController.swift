@@ -17,6 +17,20 @@ class ProfileViewController: UIViewController {
         image.layer.cornerRadius =  image.frame.height/2
         image.layer.masksToBounds = true
         image.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+        let img = scaleUIImageToSize(image: #imageLiteral(resourceName: "user"), size: CGSize(width: 200, height: 200))
+        image.image = img
+        return image
+    }()
+    
+    let settingsView: UIImageView = {
+        let image = UIImageView()
+        image.frame =  CGRect(x: 0, y: -5, width: 50, height: 50)
+        image.layer.cornerRadius =  image.frame.height/2
+        image.layer.masksToBounds = true
+        image.backgroundColor = #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1)
+        let img = scaleUIImageToSize(image: #imageLiteral(resourceName: "settings"), size: CGSize(width: 50, height: 50))
+        image.image = img
+        image.clipsToBounds = true
         return image
     }()
     
@@ -51,7 +65,14 @@ class ProfileViewController: UIViewController {
         view.addSubview(profilePic)
         self.profilePic.snp.makeConstraints { make in
             make.top.topMargin.equalTo(view.snp_topMargin).offset(5)
-            make.left.leftMargin.equalTo(view.snp_leftMargin).offset(10)
+            make.left.leftMargin.equalTo(view.snp_leftMargin).offset(2)
+        }
+        
+        //Settings Image
+        view.addSubview(settingsView)
+        self.settingsView.snp.makeConstraints { make in
+            make.top.topMargin.equalTo(view.snp_topMargin).offset(25)
+            make.left.leftMargin.equalTo(profilePic.snp_rightMargin).offset(130)
         }
         
         //Add Workout
@@ -76,5 +97,23 @@ class ProfileViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+extension ProfileViewController {
+    /*
+     Image Resizing Techniques: http://bit.ly/1Hv0T6i
+     */
+    class func scaleUIImageToSize( image: UIImage, size: CGSize) -> UIImage {
+        let hasAlpha = false
+        let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
+        
+        UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+        image.draw(in: CGRect(origin: .zero, size: size))
+        
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return scaledImage!
     }
 }
