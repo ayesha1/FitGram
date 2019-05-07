@@ -10,15 +10,14 @@ import UIKit
 import SnapKit
 
 class ProfileViewController: UIViewController {
+    
+    var profilePicture = #imageLiteral(resourceName: "user")
    
     let profilePic: UIImageView = {
         let image = UIImageView()
         image.frame =  CGRect(x: 0, y: 0, width: 200, height: 200)
         image.layer.cornerRadius =  image.frame.height/2
         image.layer.masksToBounds = true
-        image.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
-        let img = scaleUIImageToSize(image: #imageLiteral(resourceName: "user"), size: CGSize(width: 200, height: 200))
-        image.image = img
         return image
     }()
     
@@ -63,6 +62,8 @@ class ProfileViewController: UIViewController {
         
         //Profile Image
         view.addSubview(profilePic)
+        let img = ProfileViewController.scaleUIImageToSize(image: profilePicture, size: CGSize(width: 200, height: 200))
+        profilePic.image = img
         self.profilePic.snp.makeConstraints { make in
             make.top.topMargin.equalTo(view.snp_topMargin).offset(5)
             make.left.leftMargin.equalTo(view.snp_leftMargin).offset(2)
