@@ -13,9 +13,7 @@ import AlamofireImage
 
 class ProfileViewController: UIViewController {
     
-    var profilePicture = #imageLiteral(resourceName: "user")
-   
-    let profilePic: UIImageView = {
+    lazy var profilePic: UIImageView = {
         let image = UIImageView()
         image.frame =  CGRect(x: 0, y: 0, width: 200, height: 200)
         image.layer.cornerRadius =  image.frame.height/2
@@ -32,7 +30,6 @@ class ProfileViewController: UIViewController {
         nameLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         let userName = Auth.auth().currentUser?.displayName?.description
         nameLabel.text = userName
-        print("😁\(nameLabel.text)")
         return nameLabel
     }()
     
@@ -133,11 +130,6 @@ class ProfileViewController: UIViewController {
         let landingPage = LandingPageViewController()
         self.present(landingPage, animated: true, completion: nil)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
 
 extension ProfileViewController {
@@ -164,18 +156,23 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         picker.delegate = self
         picker.allowsEditing = true
         picker.sourceType = .photoLibrary
-        
+        picker.mediaTypes = ["public.image", "public.movie"]
         present(picker, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[.editedImage] as? UIImage else {
-            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
-        }
-        print("👩🏻‍💻\(image)")
+        print("😇\(info)")
         let size = CGSize(width: 200, height: 200)
-        profilePic.image = image.af_imageScaled(to: size)
-        
-        dismiss(animated: true, completion: nil)
+        if let image = info[.originalImage] as? UIImage {
+            let img = image.af_imageScaled(to: size)
+            self.profilePic.image = img
+            self.profilePic.setNeedsDisplay()
+        }
+        else if let image = info[.editedImage] as? UIImage {
+            let img = image.af_imageScaled(to: size)
+            self.profilePic.image = img
+            self.profilePic.setNeedsDisplay()
+        }
+        picker.dismiss(animated: true, completion: nil)
     }
 }
