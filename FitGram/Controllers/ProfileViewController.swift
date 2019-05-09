@@ -105,6 +105,7 @@ class ProfileViewController: UIViewController {
             make.top.topMargin.equalTo(view.snp_topMargin).offset(400)
             make.left.leftMargin.equalTo(view.snp_leftMargin).offset(2)
         }
+        setUpStreak()
         
         //Add Workout
         view.addSubview(addFriendView)
@@ -113,6 +114,32 @@ class ProfileViewController: UIViewController {
             make.width.equalTo(180)
             make.top.topMargin.equalTo(view.snp_topMargin).offset(400)
             make.right.rightMargin.equalTo(view.snp_rightMargin).offset(-2)
+        }
+        setUpAddFriend()
+    }
+    
+    func setUpStreak() {
+        let addStreakImageView = UIImageView()
+        addStreakImageView.layer.masksToBounds = true
+        addStreakImageView.isUserInteractionEnabled = true
+        addStreakImageView.image = #imageLiteral(resourceName: "trophy")
+        addChallengeView.addSubview(addStreakImageView)
+        addStreakImageView.snp.makeConstraints { make in
+            make.top.topMargin.equalTo(addChallengeView.snp_topMargin).offset(10)
+            make.left.leftMargin.equalTo(addChallengeView.snp_leftMargin).offset(10)
+        }
+    }
+    
+    func setUpAddFriend() {
+        let addFriendImageView = UIImageView()
+        addFriendImageView.layer.masksToBounds = true
+        addFriendImageView.isUserInteractionEnabled = true
+        addFriendImageView.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+        addFriendImageView.image = #imageLiteral(resourceName: "add-friend (4)")
+        addFriendView.addSubview(addFriendImageView)
+        addFriendImageView.snp.makeConstraints { make in
+            make.top.topMargin.equalTo(addFriendView.snp_topMargin).offset(10)
+            make.left.leftMargin.equalTo(addFriendView.snp_leftMargin).offset(10)
         }
     }
     
@@ -165,6 +192,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         let size = CGSize(width: 200, height: 200)
         if let image = info[.originalImage] as? UIImage {
             let img = image.af_imageScaled(to: size)
+            print("img\(img)")
             self.profilePic.image = img
             self.profilePic.setNeedsDisplay()
         }
