@@ -22,6 +22,16 @@ class ProfileViewController: UIViewController {
         return image
     }()
     
+    let nameLabel: UILabel = {
+        let nameLabel = UILabel()
+        nameLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
+        nameLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        let userName = Auth.auth().currentUser?.displayName?.description
+        nameLabel.text = userName
+        print("😁\(nameLabel.text)")
+        return nameLabel
+    }()
+    
     let logoutView: UIImageView = {
         let image = UIImageView()
         image.frame =  CGRect(x: 0, y: -5, width: 50, height: 50)
@@ -58,8 +68,8 @@ class ProfileViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         self.title = "Profile"
         setupSubviews()
-        let tapForLogout = UITapGestureRecognizer(target: self, action: #selector(logoutClicked(_:)))
-        logoutView.addGestureRecognizer(tapForLogout)
+        
+        setUpGestures()
     }
     
     func setupSubviews() {
@@ -72,8 +82,13 @@ class ProfileViewController: UIViewController {
             make.top.topMargin.equalTo(view.snp_topMargin).offset(5)
             make.left.leftMargin.equalTo(view.snp_leftMargin).offset(2)
         }
-//        UITapGestureRecognizer(target: self, action: #selector(handleSelectProfilePic))
-//        profilePic.addGestureRecognizer(UITapGestureRecognizer)
+        
+        //Name Label
+        view.addSubview(nameLabel)
+        self.nameLabel.snp.makeConstraints { make in
+            make.left.leftMargin.equalTo(profilePic.snp_rightMargin).offset(15)
+            make.top.topMargin.equalTo(view.snp_topMargin).offset(175)
+        }
         
         //Settings Image
         view.addSubview(logoutView)
@@ -99,6 +114,15 @@ class ProfileViewController: UIViewController {
             make.top.topMargin.equalTo(view.snp_topMargin).offset(400)
             make.right.rightMargin.equalTo(view.snp_rightMargin).offset(-2)
         }
+    }
+    
+    func setUpGestures() {
+        let tapForLogout = UITapGestureRecognizer(target: self, action: #selector(logoutClicked(_:)))
+        logoutView.addGestureRecognizer(tapForLogout)
+        
+        let tapForProfilePic = UITapGestureRecognizer(target: self, action: #selector(handleSelectProfilePic))
+        profilePic.addGestureRecognizer(tapForProfilePic)
+
     }
     
     @objc func logoutClicked(_ sender: UIButton) {
@@ -133,7 +157,7 @@ extension ProfileViewController {
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @objc func handleSelectProfilePic() {
-        
+        print("click")
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
