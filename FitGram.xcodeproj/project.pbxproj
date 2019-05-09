@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		67421F5E8D7162D63B85AE62 /* Pods_FitGramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940399A09079A09547646AE6 /* Pods_FitGramUITests.framework */; };
-		6A75F12B227CC68C005CABED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A75F12A227CC68C005CABED /* GoogleService-Info.plist */; };
+		6A75F169227F8BC3005CABED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A75F168227F8BC3005CABED /* GoogleService-Info.plist */; };
 		6A861C682248425000D7B261 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A861C672248425000D7B261 /* ProfileViewController.swift */; };
 		6A861C6A2248426100D7B261 /* ExerciseNewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A861C692248426100D7B261 /* ExerciseNewsFeedViewController.swift */; };
 		6A861C6C2248426B00D7B261 /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A861C6B2248426B00D7B261 /* ChallengeViewController.swift */; };
@@ -47,7 +47,7 @@
 		08D493BD7918F5C714641236 /* Pods-FitGramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitGramTests/Pods-FitGramTests.release.xcconfig"; sourceTree = "<group>"; };
 		4026B0B4A0A30922BCDAAEB9 /* Pods-FitGramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitGramTests/Pods-FitGramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D5C0C86127AECE77FBF174D /* Pods-FitGramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitGramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitGramUITests/Pods-FitGramUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		6A75F12A227CC68C005CABED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6A75F168227F8BC3005CABED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6A861C672248425000D7B261 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../ProfileViewController.swift; sourceTree = "<group>"; };
 		6A861C692248426100D7B261 /* ExerciseNewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExerciseNewsFeedViewController.swift; path = ../ExerciseNewsFeedViewController.swift; sourceTree = "<group>"; };
 		6A861C6B2248426B00D7B261 /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChallengeViewController.swift; path = ../ChallengeViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +108,7 @@
 		6A861C6622483EEF00D7B261 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6A94450D22480D3000980F88 /* AppDelegate.swift */,
 				6ACF3609226677D80088EB0B /* Tabs */,
 				6AADB1D12261624000290A83 /* LandingPageViewController.swift */,
 				6AADB1D32261625100290A83 /* LoginViewController.swift */,
@@ -144,11 +145,10 @@
 			children = (
 				6ADD6EE3225E336000B63B3E /* FitGram.entitlements */,
 				6A861C6622483EEF00D7B261 /* Controllers */,
-				6A94450D22480D3000980F88 /* AppDelegate.swift */,
 				6A94451422480D3300980F88 /* Assets.xcassets */,
 				6A94451622480D3300980F88 /* LaunchScreen.storyboard */,
 				6A94451922480D3300980F88 /* Info.plist */,
-				6A75F12A227CC68C005CABED /* GoogleService-Info.plist */,
+				6A75F168227F8BC3005CABED /* GoogleService-Info.plist */,
 			);
 			path = FitGram;
 			sourceTree = "<group>";
@@ -323,7 +323,7 @@
 			files = (
 				6A94451822480D3300980F88 /* LaunchScreen.storyboard in Resources */,
 				6A94451522480D3300980F88 /* Assets.xcassets in Resources */,
-				6A75F12B227CC68C005CABED /* GoogleService-Info.plist in Resources */,
+				6A75F169227F8BC3005CABED /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,19 +405,31 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FitGram/Pods-FitGram-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/CBFlashyTabBarController/CBFlashyTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/PMSuperButton/PMSuperButton.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CBFlashyTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMSuperButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

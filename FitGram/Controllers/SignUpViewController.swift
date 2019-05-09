@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import PMSuperButton
 class SignUpViewController: UIViewController {
+    let db = Firestore.firestore()
+    let auth = Auth.auth()
     
     let inputsContainerView: UIView = {
         let view = UIView()
@@ -44,35 +46,33 @@ class SignUpViewController: UIViewController {
             return
         }
         
-        Auth.auth().createUser(withEmail: email, password: password, completion: { (res, error) in
-            
-            if let error = error {
-                print(error)
+        //Firebase Database
+        
+        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+            guard error == nil else {
+                guard let err = error?.localizedDescription else { return }
+                
+                print("Trouble signing up \(error)")
                 return
             }
             
-            guard let uid = res?.user.uid else {
-                return
-            }
+            guard let userId = self.auth.currentUser?.uid else { return }
             
-            //successfully authenticated user
-            let ref = Database.database().reference()
-            let usersReference = ref.child("users").child(uid)
-            let values = ["name": name, "email": email]
-            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                
-                if let err = err {
-                    print(err)
-                    return
-                }
-                
-                print("Saved user successfully into Firebase db")
-                let TabVC = ViewController(nibName: "tabVC", bundle: nil)
-                self.present(TabVC, animated: true, completion: nil)
-                
+            
+            let changeRequest = self.auth.currentUser?.createProfileChangeRequest()
+            changeRequest?.displayName = name
+            changeRequest?.commitChanges(completion: { (error) in
+                print("Error in changing name \(error)")
             })
             
+            self.db.collection("users").document(userId).setData(["name": name,
+                                                                  "email": email], merge: true)
+        
+            let TabVC = ViewController()
+            self.present(TabVC, animated: true, completion: nil)
         })
+        
+        
     }
     
     let nameTextField: UITextField = {
