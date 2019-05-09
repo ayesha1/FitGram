@@ -108,6 +108,7 @@
 		6A861C6622483EEF00D7B261 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6A94450D22480D3000980F88 /* AppDelegate.swift */,
 				6ACF3609226677D80088EB0B /* Tabs */,
 				6AADB1D12261624000290A83 /* LandingPageViewController.swift */,
 				6AADB1D32261625100290A83 /* LoginViewController.swift */,
@@ -144,7 +145,6 @@
 			children = (
 				6ADD6EE3225E336000B63B3E /* FitGram.entitlements */,
 				6A861C6622483EEF00D7B261 /* Controllers */,
-				6A94450D22480D3000980F88 /* AppDelegate.swift */,
 				6A94451422480D3300980F88 /* Assets.xcassets */,
 				6A94451622480D3300980F88 /* LaunchScreen.storyboard */,
 				6A94451922480D3300980F88 /* Info.plist */,

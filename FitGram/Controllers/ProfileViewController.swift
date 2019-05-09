@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Firebase
 
 class ProfileViewController: UIViewController {
     
@@ -21,15 +22,16 @@ class ProfileViewController: UIViewController {
         return image
     }()
     
-    let settingsView: UIImageView = {
+    let logoutView: UIImageView = {
         let image = UIImageView()
         image.frame =  CGRect(x: 0, y: -5, width: 50, height: 50)
         image.layer.cornerRadius =  image.frame.height/2
         image.layer.masksToBounds = true
         image.backgroundColor = #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1)
-        let img = scaleUIImageToSize(image: #imageLiteral(resourceName: "settings"), size: CGSize(width: 50, height: 50))
+        let img = scaleUIImageToSize(image: #imageLiteral(resourceName: "logout"), size: CGSize(width: 50, height: 50))
         image.image = img
         image.clipsToBounds = true
+        image.isUserInteractionEnabled = true
         return image
     }()
     
@@ -56,6 +58,8 @@ class ProfileViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         self.title = "Profile"
         setupSubviews()
+        let tapForLogout = UITapGestureRecognizer(target: self, action: #selector(logoutClicked(_:)))
+        logoutView.addGestureRecognizer(tapForLogout)
     }
     
     func setupSubviews() {
@@ -68,10 +72,12 @@ class ProfileViewController: UIViewController {
             make.top.topMargin.equalTo(view.snp_topMargin).offset(5)
             make.left.leftMargin.equalTo(view.snp_leftMargin).offset(2)
         }
+//        UITapGestureRecognizer(target: self, action: #selector(handleSelectProfilePic))
+//        profilePic.addGestureRecognizer(UITapGestureRecognizer)
         
         //Settings Image
-        view.addSubview(settingsView)
-        self.settingsView.snp.makeConstraints { make in
+        view.addSubview(logoutView)
+        self.logoutView.snp.makeConstraints { make in
             make.top.topMargin.equalTo(view.snp_topMargin).offset(25)
             make.left.leftMargin.equalTo(profilePic.snp_rightMargin).offset(130)
         }
@@ -95,6 +101,12 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    @objc func logoutClicked(_ sender: UIButton) {
+        try! Auth.auth().signOut()
+        let landingPage = LandingPageViewController()
+        self.present(landingPage, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -116,5 +128,15 @@ extension ProfileViewController {
         UIGraphicsEndImageContext()
         
         return scaledImage!
+    }
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @objc func handleSelectProfilePic() {
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
     }
 }
