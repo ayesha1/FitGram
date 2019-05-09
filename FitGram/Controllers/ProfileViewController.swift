@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Firebase
+import AlamofireImage
 
 class ProfileViewController: UIViewController {
     
@@ -19,6 +20,9 @@ class ProfileViewController: UIViewController {
         image.frame =  CGRect(x: 0, y: 0, width: 200, height: 200)
         image.layer.cornerRadius =  image.frame.height/2
         image.layer.masksToBounds = true
+        image.isUserInteractionEnabled = true
+        let img = ProfileViewController.scaleUIImageToSize(image: #imageLiteral(resourceName: "user"), size: CGSize(width: 200, height: 200))
+        image.image = img
         return image
     }()
     
@@ -76,8 +80,7 @@ class ProfileViewController: UIViewController {
         
         //Profile Image
         view.addSubview(profilePic)
-        let img = ProfileViewController.scaleUIImageToSize(image: profilePicture, size: CGSize(width: 200, height: 200))
-        profilePic.image = img
+        
         self.profilePic.snp.makeConstraints { make in
             make.top.topMargin.equalTo(view.snp_topMargin).offset(5)
             make.left.leftMargin.equalTo(view.snp_leftMargin).offset(2)
@@ -157,10 +160,22 @@ extension ProfileViewController {
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @objc func handleSelectProfilePic() {
-        print("click")
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = .photoLibrary
+        
+        present(picker, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        print("👩🏻‍💻\(image)")
+        let size = CGSize(width: 200, height: 200)
+        profilePic.image = image.af_imageScaled(to: size)
         
+        dismiss(animated: true, completion: nil)
     }
 }

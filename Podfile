@@ -13,6 +13,7 @@ target 'FitGram' do
     pod 'Firebase/Storage'
     pod 'PMSuperButton'
     pod 'SnapKit'
+    pod 'AlamofireImage'
 
   target 'FitGramTests' do
     inherit! :search_paths

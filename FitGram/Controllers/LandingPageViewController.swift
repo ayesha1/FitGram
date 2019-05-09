@@ -25,6 +25,7 @@ class LandingPageViewController: UIViewController {
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.textAlignment = .center
         textView.textColor = #colorLiteral(red: 0.9689881206, green: 0.1678331792, blue: 0.1667780876, alpha: 1)
+        textView.isUserInteractionEnabled = false
         return textView
     }()
     
