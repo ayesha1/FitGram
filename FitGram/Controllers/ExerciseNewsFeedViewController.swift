@@ -10,97 +10,30 @@ import UIKit
 import SnapKit
 import Firebase
 
-class ExerciseNewsFeedViewController: UIViewController {
-    var roundButton = UIButton()
+class ExerciseNewsFeedViewController: UITableViewController {
     weak var labelMessage: UILabel!
     let db = Firestore.firestore()
     let timestamp = NSDate().timeIntervalSince1970
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.white
         self.title = "Exercise"
-        
-       
-        
+        var roundButton = UIButton(frame: CGRect(origin: CGPoint(x: self.view.frame.width / 2 - 25, y: self.view.frame.height - 70), size: CGSize(width: 50, height: 50)))
         //Button
-        self.roundButton = UIButton(type: .custom)
-        self.roundButton.setTitleColor(UIColor.orange, for: .normal)
-        self.roundButton.addTarget(self, action: #selector(ButtonClick(_:)), for: UIControl.Event.touchUpInside)
-        self.view.addSubview(roundButton)
+        roundButton.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        self.navigationController?.view.addSubview(roundButton)
+//        self.roundButton = UIButton(type: .custom)
+//        self.roundButton.setTitleColor(UIColor.orange, for: .normal)
+//        self.roundButton.addTarget(self, action: #selector(ButtonClick(_:)), for: UIControl.Event.touchUpInside)
+//        self.view.bringSubviewToFront(roundButton)
     }
     
    
     
-    override func viewWillLayoutSubviews() {
-        
-        roundButton.layer.cornerRadius = roundButton.layer.frame.size.width/2
-        roundButton.backgroundColor = UIColor.lightGray
-        roundButton.clipsToBounds = true
-        roundButton.setImage(#imageLiteral(resourceName: "plus"), for: .normal)
-        roundButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            roundButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
-            roundButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -60),
-            roundButton.widthAnchor.constraint(equalToConstant: 50),
-            roundButton.heightAnchor.constraint(equalToConstant: 50)])
-    }
     
-    @objc func ButtonClick(_ sender: UIButton){
-        
-        /** Do whatever you wanna do on button click**/
-        print("🤬")
-        showInputDialog()
-        
-
-    }
-    
-    func showInputDialog() {
-        //Creating UIAlertController and
-        //Setting title and message for the alert dialog
-        let alertController = UIAlertController(title: "Enter Workout", message: "Enter Workout Name, Calories Burned and Time duration", preferredStyle: .alert)
-        
-        //the confirm action taking the inputs
-        let confirmAction = UIAlertAction(title: "Enter", style: .default) { (_) in
-            
-            //getting the input values from user
-            let workoutName = alertController.textFields?[0].text
-            let caloriesBurned = alertController.textFields?[1].text
-            var ref: DocumentReference? = nil
-            
-            let dataToSave: [String: Any] = ["workoutName": workoutName, "timeEntered": self.timestamp, "caloriesBurned": Int(caloriesBurned!)]
-            ref = self.db.collection("workouts").addDocument(data: dataToSave) { err in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                } else {
-                    print("Document added with ID: \(ref!.documentID)")
-                }
-            }
-            
-        }
-        
-        //the cancel action doing nothing
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-        
-        //adding textfields to our dialog box
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Enter Workout Name"
-        }
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Enter Calories"
-        }
-        
-        //adding the action to dialogbox
-        alertController.addAction(confirmAction)
-        alertController.addAction(cancelAction)
-        
-        //finally presenting the dialog box
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
