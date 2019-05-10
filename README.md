@@ -140,5 +140,7 @@ Optional:
 <img src='https://media.giphy.com/media/Rj0EKXLpcmjssMfoKY/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
+* App Demo
+<img src='http://g.recordit.co/NODSEuK70j.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
