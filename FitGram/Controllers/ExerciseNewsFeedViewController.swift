@@ -42,7 +42,7 @@ class ExerciseNewsFeedViewController: UITableViewController {
     }
     
     func loadExercises() {
-        db.collection("workouts").getDocuments { (doc, err) in
+        db.collection("workouts").order(by: "timeEntered", descending: true).getDocuments { (doc, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -53,7 +53,7 @@ class ExerciseNewsFeedViewController: UITableViewController {
                     self.tableView.reloadData()
             }
         }
-        db.collection("workouts").addSnapshotListener { (snapshot, err) in
+        db.collection("workouts").order(by: "timeEntered", descending: true).addSnapshotListener { (snapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

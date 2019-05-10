@@ -135,7 +135,6 @@ class ProfileViewController: UIViewController {
     }
     
     func setupSubviews() {
-        let group = DispatchGroup()
         //Profile Image
         view.addSubview(profilePic)
         
