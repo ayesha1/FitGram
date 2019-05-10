@@ -63,6 +63,56 @@ class ChallengeViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
         return view
     }()
+    
+    let nathanLabel: UILabel = {
+        let nathanLabel = UILabel()
+        nathanLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
+        nathanLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        nathanLabel.text = "Nathan"
+        return nathanLabel
+    }()
+    
+    let georgeLabel: UILabel = {
+        let georgeLabel = UILabel()
+        georgeLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
+        georgeLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        georgeLabel.text = "George"
+        return georgeLabel
+    }()
+    
+    let huffLabel: UILabel = {
+        let huffLabel = UILabel()
+        huffLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
+        huffLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        huffLabel.text = "Huff"
+        return huffLabel
+    }()
+    
+    
+    let liamLabel: UILabel = {
+        let liamLabel = UILabel()
+        liamLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
+        liamLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        liamLabel.text = "Liam"
+        return liamLabel
+    }()
+    
+    let kimmyLabel: UILabel = {
+        let kimmyLabel = UILabel()
+        kimmyLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
+        kimmyLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        kimmyLabel.text = "Kimmy"
+        return kimmyLabel
+    }()
+    
+    let katieLabel: UILabel = {
+        let katieLabel = UILabel()
+        katieLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
+        katieLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        katieLabel.text = "Katie"
+        return katieLabel
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,6 +139,12 @@ class ChallengeViewController: UIViewController {
             make.left.leftMargin.equalTo(view.snp_leftMargin).offset(2)
         }
         
+        addExerciseView.addSubview(nathanLabel)
+        nathanLabel.snp.makeConstraints { make in
+            make.bottom.bottomMargin.equalTo(addExerciseView.snp_bottomMargin).inset(10)
+            make.right.rightMargin.equalTo(addExerciseView.snp_rightMargin).inset(10)
+        }
+        
         //Add Workout
         view.addSubview(addFriendView)
         self.addFriendView.snp.makeConstraints { make in
@@ -98,12 +154,24 @@ class ChallengeViewController: UIViewController {
             make.right.rightMargin.equalTo(view.snp_rightMargin).offset(-2)
         }
         
+        addFriendView.addSubview(georgeLabel)
+        georgeLabel.snp.makeConstraints { make in
+            make.bottom.bottomMargin.equalTo(addFriendView.snp_bottomMargin).inset(10)
+            make.right.rightMargin.equalTo(addFriendView.snp_rightMargin).inset(10)
+        }
+        
         view.addSubview(addExerciseView1)
         self.addExerciseView1.snp.makeConstraints { make in
             make.height.equalTo(200)
             make.width.equalTo(180)
             make.top.topMargin.equalTo(addExerciseView.snp_bottomMargin).offset(20)
             make.left.leftMargin.equalTo(view.snp_leftMargin).offset(2)
+        }
+        
+        addExerciseView1.addSubview(huffLabel)
+        huffLabel.snp.makeConstraints { make in
+            make.bottom.bottomMargin.equalTo(addExerciseView1.snp_bottomMargin).inset(10)
+            make.right.rightMargin.equalTo(addExerciseView1.snp_rightMargin).inset(10)
         }
         
         //Add Workout
@@ -115,12 +183,24 @@ class ChallengeViewController: UIViewController {
             make.right.rightMargin.equalTo(view.snp_rightMargin).offset(-2)
         }
         
+        addFriendView1.addSubview(liamLabel)
+        liamLabel.snp.makeConstraints { make in
+            make.bottom.bottomMargin.equalTo(addFriendView1.snp_bottomMargin).inset(10)
+            make.right.rightMargin.equalTo(addFriendView1.snp_rightMargin).inset(10)
+        }
+        
         view.addSubview(addExerciseView2)
         self.addExerciseView2.snp.makeConstraints { make in
             make.height.equalTo(200)
             make.width.equalTo(180)
             make.top.topMargin.equalTo(addExerciseView1.snp_bottomMargin).offset(20)
             make.left.leftMargin.equalTo(view.snp_leftMargin).offset(2)
+        }
+        
+        addExerciseView2.addSubview(kimmyLabel)
+        kimmyLabel.snp.makeConstraints { make in
+            make.bottom.bottomMargin.equalTo(addExerciseView2.snp_bottomMargin).inset(10)
+            make.right.rightMargin.equalTo(addExerciseView2.snp_rightMargin).inset(10)
         }
         
         //Add Workout
@@ -130,6 +210,12 @@ class ChallengeViewController: UIViewController {
             make.width.equalTo(180)
             make.top.topMargin.equalTo(addFriendView1.snp_bottomMargin).offset(20)
             make.right.rightMargin.equalTo(view.snp_rightMargin).offset(-2)
+        }
+        
+        addFriendView2.addSubview(katieLabel)
+        katieLabel.snp.makeConstraints { make in
+            make.bottom.bottomMargin.equalTo(addFriendView2.snp_bottomMargin).inset(10)
+            make.right.rightMargin.equalTo(addFriendView2.snp_rightMargin).inset(10)
         }
     }
     

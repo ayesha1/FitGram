@@ -92,6 +92,23 @@ class ProfileViewController: UIViewController {
         return friendsCount
     }()
     
+    let streaks: UILabel = {
+        let streaks = UILabel()
+        streaks.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
+        streaks.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        streaks.text = "Streaks"
+        return streaks
+    }()
+    
+    let inviteAFriend: UILabel = {
+        let inviteAFriend = UILabel()
+        inviteAFriend.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
+        inviteAFriend.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        inviteAFriend.text = """
+        Add Friend
+        """
+        return inviteAFriend
+    }()
     
     let logoutView: UIImageView = {
         let image = UIImageView()
@@ -221,7 +238,30 @@ class ProfileViewController: UIViewController {
             make.top.topMargin.equalTo(view.snp_topMargin).offset(400)
             make.right.rightMargin.equalTo(view.snp_rightMargin).offset(-2)
         }
+        
         setUpAddFriend()
+        
+        
+        
+        
+        //Add Streaks
+        view.addSubview(streaks)
+        self.streaks.snp.makeConstraints { make in
+            make.height.equalTo(200)
+            make.width.equalTo(180)
+            make.bottom.bottomMargin.equalTo(view.snp_topMargin).offset(680)
+            make.left.leftMargin.equalTo(view.snp_leftMargin).offset(10)
+        }
+        setUpStreak()
+        
+        //Add Friend
+        view.addSubview(inviteAFriend)
+        self.inviteAFriend.snp.makeConstraints { make in
+            make.height.equalTo(200)
+            make.width.equalTo(180)
+            make.bottom.bottomMargin.equalTo(view.snp_topMargin).offset(680)
+            make.right.rightMargin.equalTo(view.snp_rightMargin).offset(1)
+        }
     }
     
     func setUpStreak() {
