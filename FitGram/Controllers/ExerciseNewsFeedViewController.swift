@@ -59,7 +59,7 @@ class ExerciseNewsFeedViewController: UITableViewController {
             } else {
                 self.exercises.removeAll()
                 for document in (snapshot?.documents)! {
-                    self.exercises.append(Workouts(workout: document.get("workoutName") as! String, calories: document.get("caloriesBurned") as! Int, name: document.get("name") as! String, time: document.get("timeEntered") as! String))
+                    self.exercises.append(Workouts(workout: document.get("workoutName") as? String ?? "Run", calories: document.get("caloriesBurned") as? Int ?? 100, name: document.get("name") as? String ?? "Henry", time: document.get("timeEntered") as? String ?? "2019-05-10 13:09:18 +0000"))
                     print(self.exercises)
                 }
                     self.tableView.reloadData()
