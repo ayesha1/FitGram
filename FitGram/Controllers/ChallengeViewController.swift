@@ -23,6 +23,7 @@ class ChallengeViewController: UIViewController {
         let view = UIView()
         view.layer.cornerRadius = 12
         view.layer.masksToBounds = true
+        view.isUserInteractionEnabled = true
         view.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
         return view
     }()
@@ -41,6 +42,7 @@ class ChallengeViewController: UIViewController {
         view.layer.cornerRadius = 12
         view.layer.masksToBounds = true
         view.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -57,6 +59,7 @@ class ChallengeViewController: UIViewController {
         let view = UIView()
         view.layer.cornerRadius = 12
         view.layer.masksToBounds = true
+        view.isUserInteractionEnabled = true
         view.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
         return view
     }()
@@ -74,6 +77,7 @@ class ChallengeViewController: UIViewController {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 120, width: screenWidth, height: screenHeight))
 
         setupViews()
+        addTapGesture()
     }
     
     func setupViews() {
@@ -127,5 +131,49 @@ class ChallengeViewController: UIViewController {
             make.top.topMargin.equalTo(addFriendView1.snp_bottomMargin).offset(20)
             make.right.rightMargin.equalTo(view.snp_rightMargin).offset(-2)
         }
+    }
+    
+    func addTapGesture() {
+        let tapForChallenge = UITapGestureRecognizer(target: self, action: #selector(ButtonClickForChallengeFriend(_:)))
+        let tapForChallenge1 = UITapGestureRecognizer(target: self, action: #selector(ButtonClickForChallengeFriend(_:)))
+        let tapForChallenge2 = UITapGestureRecognizer(target: self, action: #selector(ButtonClickForChallengeFriend(_:)))
+        let tapForChallenge3 = UITapGestureRecognizer(target: self, action: #selector(ButtonClickForChallengeFriend(_:)))
+        let tapForChallenge4 = UITapGestureRecognizer(target: self, action: #selector(ButtonClickForChallengeFriend(_:)))
+        let tapForChallenge5 = UITapGestureRecognizer(target: self, action: #selector(ButtonClickForChallengeFriend(_:)))
+        addExerciseView.addGestureRecognizer(tapForChallenge)
+        addFriendView.addGestureRecognizer(tapForChallenge1)
+        addExerciseView1.addGestureRecognizer(tapForChallenge2)
+        addFriendView1.addGestureRecognizer(tapForChallenge3)
+        addExerciseView2.addGestureRecognizer(tapForChallenge4)
+        addFriendView2.addGestureRecognizer(tapForChallenge5)
+    }
+}
+
+extension ChallengeViewController {
+    @objc func ButtonClickForChallengeFriend(_ sender: UIButton){
+        print("🤬")
+        showInputDialogFriend()
+    }
+    
+    func showInputDialogFriend() {
+        //Creating UIAlertController and
+        //Setting title and message for the alert dialog
+        let alertController = UIAlertController(title: "Challenge Friend?", message: "", preferredStyle: .alert)
+        
+        //the confirm action taking the inputs
+        let confirmAction = UIAlertAction(title: "Yes", style: .default) { (_) in
+            
+            //getting the input values from user
+        }
+        
+        //the cancel action doing nothing
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        //adding the action to dialogbox
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        //finally presenting the dialog box
+        self.present(alertController, animated: true, completion: nil)
     }
 }

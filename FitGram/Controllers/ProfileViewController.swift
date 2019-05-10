@@ -140,6 +140,7 @@ class ProfileViewController: UIViewController {
         view.layer.cornerRadius = 12
         view.layer.masksToBounds = true
         view.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -300,6 +301,8 @@ class ProfileViewController: UIViewController {
         
         let tapForAddEx = UITapGestureRecognizer(target: self, action: #selector(ButtonClick(_:)))
         addExerciseView.addGestureRecognizer(tapForAddEx)
+        let tapForAddF = UITapGestureRecognizer(target: self, action: #selector(ButtonClickForAddFriend(_:)))
+        addFriendView.addGestureRecognizer(tapForAddF)
     }
     
     @objc func logoutClicked(_ sender: UIButton) {
