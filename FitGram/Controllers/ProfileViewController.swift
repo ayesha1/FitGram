@@ -110,6 +110,54 @@ class ProfileViewController: UIViewController {
         return inviteAFriend
     }()
     
+    let nathanLabel: UILabel = {
+        let nathanLabel = UILabel()
+        nathanLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
+        nathanLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        nathanLabel.text = "Nathan"
+        return nathanLabel
+    }()
+    
+    let georgeLabel: UILabel = {
+        let georgeLabel = UILabel()
+        georgeLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
+        georgeLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        georgeLabel.text = "George"
+        return georgeLabel
+    }()
+    
+    let huffLabel: UILabel = {
+        let huffLabel = UILabel()
+        huffLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
+        huffLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        huffLabel.text = "Huff"
+        return huffLabel
+    }()
+    
+    
+    let liamLabel: UILabel = {
+        let liamLabel = UILabel()
+        liamLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
+        liamLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        liamLabel.text = "Liam"
+        return liamLabel
+    }()
+    
+    let kimmyLabel: UILabel = {
+        let kimmyLabel = UILabel()
+        kimmyLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
+        kimmyLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        kimmyLabel.text = "Kimmy"
+        return kimmyLabel
+    }()
+    
+    let katieLabel: UILabel = {
+        let katieLabel = UILabel()
+        katieLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
+        katieLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        katieLabel.text = "Katie"
+        return katieLabel
+    }()
     
     
     
@@ -242,8 +290,8 @@ class ProfileViewController: UIViewController {
             make.right.rightMargin.equalTo(view.snp_rightMargin).offset(-2)
         }
         
-        
         setUpAddFriend()
+        
         
         
         
