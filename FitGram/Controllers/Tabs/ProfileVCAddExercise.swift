@@ -59,4 +59,36 @@ extension ProfileViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    @objc func ButtonClickForAddFriend(_ sender: UIButton){
+        print("🤬")
+        showInputDialogFriend()
+    }
+    
+    func showInputDialogFriend() {
+        //Creating UIAlertController and
+        //Setting title and message for the alert dialog
+        let alertController = UIAlertController(title: "Enter Friend's email", message: "", preferredStyle: .alert)
+        
+        //the confirm action taking the inputs
+        let confirmAction = UIAlertAction(title: "Enter", style: .default) { (_) in
+            
+            //getting the input values from user
+            let email = alertController.textFields?[0].text
+        }
+        
+        //the cancel action doing nothing
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        //adding textfields to our dialog box
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Enter Email"
+        }
+        //adding the action to dialogbox
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        //finally presenting the dialog box
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }
