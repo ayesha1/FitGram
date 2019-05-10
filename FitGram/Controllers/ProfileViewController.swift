@@ -38,6 +38,60 @@ class ProfileViewController: UIViewController {
         return nameLabel
     }()
     
+    let workoutLabel: UILabel = {
+        let workoutLabel = UILabel()
+        workoutLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 18)
+        workoutLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        workoutLabel.text = "Workouts"
+        return workoutLabel
+    }()
+    
+
+    let challengeLabel: UILabel = {
+        let challengeLabel = UILabel()
+        challengeLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 18)
+        challengeLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        challengeLabel.text = "Challenge"
+        return challengeLabel
+    }()
+    
+    
+    let friendsLabel: UILabel = {
+        let friendsLabel = UILabel()
+        friendsLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 18)
+        friendsLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        friendsLabel.text = "Friends"
+        return friendsLabel
+    }()
+    
+    ////////////////
+    
+    let workoutCount: UILabel = {
+        let workoutCount = UILabel()
+        workoutCount.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 25)
+        workoutCount.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        workoutCount.text = "4"
+        return workoutCount
+    }()
+    
+    
+    let challengeCount: UILabel = {
+        let challengeCount = UILabel()
+        challengeCount.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 25)
+        challengeCount.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        challengeCount.text = "2"
+        return challengeCount
+    }()
+    
+    let friendsCount: UILabel = {
+        let friendsCount = UILabel()
+        friendsCount.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 25)
+        friendsCount.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        friendsCount.text = "48"
+        return friendsCount
+    }()
+    
+    
     let logoutView: UIImageView = {
         let image = UIImageView()
         image.frame =  CGRect(x: 0, y: -5, width: 50, height: 50)
@@ -99,6 +153,48 @@ class ProfileViewController: UIViewController {
             make.top.topMargin.equalTo(view.snp_topMargin).offset(175)
         }
         
+        //Add WorkoutLabel
+        view.addSubview(workoutLabel)
+        self.workoutLabel.snp.makeConstraints {  make in
+            make.top.topMargin.equalTo(profilePic.snp_bottomMargin).offset(100)
+            make.leftMargin.leftMargin.equalTo(view.snp_leftMargin).offset(20)
+        }
+        
+        //Add ChallengeLabel
+        view.addSubview(challengeLabel)
+        self.challengeLabel.snp.makeConstraints {  make in
+            make.top.topMargin.equalTo(profilePic.snp_bottomMargin).offset(100)
+            make.leftMargin.leftMargin.equalTo(view.snp_leftMargin).offset(168)
+        }
+        
+        //Add friendsLabel
+        view.addSubview(friendsLabel)
+        self.friendsLabel.snp.makeConstraints {  make in
+            make.top.topMargin.equalTo(profilePic.snp_bottomMargin).offset(100)
+            make.leftMargin.leftMargin.equalTo(view.snp_rightMargin).offset(-60)
+        }
+        
+        //Add workoutCount Label
+        view.addSubview(workoutCount)
+        self.workoutCount.snp.makeConstraints {  make in
+            make.top.topMargin.equalTo(profilePic.snp_bottomMargin).offset(75)
+            make.leftMargin.leftMargin.equalTo(view.snp_leftMargin).offset(50)
+        }
+
+        //Add challengeCount label
+        view.addSubview(challengeCount)
+        self.challengeCount.snp.makeConstraints {  make in
+            make.top.topMargin.equalTo(profilePic.snp_bottomMargin).offset(75)
+            make.leftMargin.leftMargin.equalTo(view.snp_leftMargin).offset(198)
+        }
+
+        //Add friendCount label
+        view.addSubview(friendsCount)
+        self.friendsCount.snp.makeConstraints {  make in
+            make.top.topMargin.equalTo(profilePic.snp_bottomMargin).offset(75)
+            make.leftMargin.leftMargin.equalTo(view.snp_rightMargin).offset(-50)
+        }
+
         //Settings Image
         view.addSubview(logoutView)
         self.logoutView.snp.makeConstraints { make in
