@@ -10,95 +10,72 @@ import UIKit
 import SnapKit
 import Firebase
 
-class ExerciseNewsFeedViewController: UIViewController {
-    var roundButton = UIButton()
+struct Workouts {
+    let workout: String
+    let calories: Int
+    let name: String
+    let time: String
+    
+    init(workout: String, calories: Int, name: String, time: String) {
+        self.workout = workout
+        self.calories = calories
+        self.name = name
+        self.time = time
+    }
+}
+
+class ExerciseNewsFeedViewController: UITableViewController {
     weak var labelMessage: UILabel!
     let db = Firestore.firestore()
     let timestamp = NSDate().timeIntervalSince1970
+    var exercises = [Workouts]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        tableView.rowHeight = 100
+        tableView.separatorColor = .clear
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.white
         self.title = "Exercise"
-        
-       
-        
-        //Button
-        self.roundButton = UIButton(type: .custom)
-        self.roundButton.setTitleColor(UIColor.orange, for: .normal)
-        self.roundButton.addTarget(self, action: #selector(ButtonClick(_:)), for: UIControl.Event.touchUpInside)
-        self.view.addSubview(roundButton)
+        loadExercises()
+        tableView.register(ExerciseNewsFeedCell.self, forCellReuseIdentifier: "cell")
     }
     
-   
-    
-    override func viewWillLayoutSubviews() {
-        
-        roundButton.layer.cornerRadius = roundButton.layer.frame.size.width/2
-        roundButton.backgroundColor = UIColor.lightGray
-        roundButton.clipsToBounds = true
-        roundButton.setImage(#imageLiteral(resourceName: "plus"), for: .normal)
-        roundButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            roundButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
-            roundButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -60),
-            roundButton.widthAnchor.constraint(equalToConstant: 50),
-            roundButton.heightAnchor.constraint(equalToConstant: 50)])
-    }
-    
-    @objc func ButtonClick(_ sender: UIButton){
-        
-        /** Do whatever you wanna do on button click**/
-        print("🤬")
-        showInputDialog()
-        
-
-    }
-    
-    func showInputDialog() {
-        //Creating UIAlertController and
-        //Setting title and message for the alert dialog
-        let alertController = UIAlertController(title: "Enter Workout", message: "Enter Workout Name, Calories Burned and Time duration", preferredStyle: .alert)
-        
-        //the confirm action taking the inputs
-        let confirmAction = UIAlertAction(title: "Enter", style: .default) { (_) in
-            
-            //getting the input values from user
-            let workoutName = alertController.textFields?[0].text
-            let caloriesBurned = alertController.textFields?[1].text
-            var ref: DocumentReference? = nil
-            
-            let dataToSave: [String: Any] = ["workoutName": workoutName, "timeEntered": self.timestamp, "caloriesBurned": Int(caloriesBurned!)]
-            ref = self.db.collection("workouts").addDocument(data: dataToSave) { err in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                } else {
-                    print("Document added with ID: \(ref!.documentID)")
+    func loadExercises() {
+        db.collection("workouts").getDocuments { (doc, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in (doc?.documents)! {
+                    self.exercises.append(Workouts(workout: document.get("workoutName") as! String, calories: document.get("caloriesBurned") as! Int, name: document.get("name") as! String, time: document.get("timeEntered") as! String))
+                    print(self.exercises)
                 }
+                    self.tableView.reloadData()
             }
-            
         }
-        
-        //the cancel action doing nothing
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-        
-        //adding textfields to our dialog box
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Enter Workout Name"
+        db.collection("workouts").addSnapshotListener { (snapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.exercises.removeAll()
+                for document in (snapshot?.documents)! {
+                    self.exercises.append(Workouts(workout: document.get("workoutName") as! String, calories: document.get("caloriesBurned") as! Int, name: document.get("name") as! String, time: document.get("timeEntered") as! String))
+                    print(self.exercises)
+                }
+                    self.tableView.reloadData()
+            }
         }
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Enter Calories"
-        }
-        
-        //adding the action to dialogbox
-        alertController.addAction(confirmAction)
-        alertController.addAction(cancelAction)
-        
-        //finally presenting the dialog box
-        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return exercises.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ExerciseNewsFeedCell
+        cell.setupViews(with: exercises[indexPath.row])
+        print("😇\(exercises[indexPath.row])")
+        return cell
     }
     
     override func didReceiveMemoryWarning() {

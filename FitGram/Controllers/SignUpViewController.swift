@@ -58,7 +58,6 @@ class SignUpViewController: UIViewController {
             
             guard let userId = self.auth.currentUser?.uid else { return }
             
-            
             let changeRequest = self.auth.currentUser?.createProfileChangeRequest()
             changeRequest?.displayName = name
             changeRequest?.commitChanges(completion: { (error) in

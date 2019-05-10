@@ -12,6 +12,12 @@ import Firebase
 import AlamofireImage
 
 class ProfileViewController: UIViewController {
+    let db = Firestore.firestore()
+    let auth = Auth.auth()
+    var imageFromFirestore = #imageLiteral(resourceName: "user")
+    var selectedImage: UIImage?
+     let timestamp = NSDate().timeIntervalSince1970
+    let date = Date()
     
     lazy var profilePic: UIImageView = {
         let image = UIImageView()
@@ -19,8 +25,8 @@ class ProfileViewController: UIViewController {
         image.layer.cornerRadius =  image.frame.height/2
         image.layer.masksToBounds = true
         image.isUserInteractionEnabled = true
-        let img = ProfileViewController.scaleUIImageToSize(image: #imageLiteral(resourceName: "user"), size: CGSize(width: 200, height: 200))
-        image.image = img
+        var imageProfile = UIImage()
+        print("😕\(self.date.description)")
         return image
     }()
     
@@ -100,11 +106,12 @@ class ProfileViewController: UIViewController {
         return image
     }()
     
-    let addChallengeView: UIView = {
+    let addExerciseView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 12
         view.layer.masksToBounds = true
         view.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -128,7 +135,7 @@ class ProfileViewController: UIViewController {
     }
     
     func setupSubviews() {
-        
+        let group = DispatchGroup()
         //Profile Image
         view.addSubview(profilePic)
         
@@ -136,6 +143,9 @@ class ProfileViewController: UIViewController {
             make.top.topMargin.equalTo(view.snp_topMargin).offset(5)
             make.left.leftMargin.equalTo(view.snp_leftMargin).offset(2)
         }
+        
+        let img = ProfileViewController.scaleUIImageToSize(image: #imageLiteral(resourceName: "user"), size: CGSize(width: 200, height: 200))
+        profilePic.image = img
         
         //Name Label
         view.addSubview(nameLabel)
@@ -194,8 +204,8 @@ class ProfileViewController: UIViewController {
         }
         
         //Add Workout
-        view.addSubview(addChallengeView)
-        self.addChallengeView.snp.makeConstraints { make in
+        view.addSubview(addExerciseView)
+        self.addExerciseView.snp.makeConstraints { make in
             make.height.equalTo(200)
             make.width.equalTo(180)
             make.top.topMargin.equalTo(view.snp_topMargin).offset(400)
@@ -218,11 +228,11 @@ class ProfileViewController: UIViewController {
         let addStreakImageView = UIImageView()
         addStreakImageView.layer.masksToBounds = true
         addStreakImageView.isUserInteractionEnabled = true
-        addStreakImageView.image = #imageLiteral(resourceName: "trophy")
-        addChallengeView.addSubview(addStreakImageView)
+        addStreakImageView.image = #imageLiteral(resourceName: "stretching-exercises")
+        addExerciseView.addSubview(addStreakImageView)
         addStreakImageView.snp.makeConstraints { make in
-            make.top.topMargin.equalTo(addChallengeView.snp_topMargin).offset(10)
-            make.left.leftMargin.equalTo(addChallengeView.snp_leftMargin).offset(10)
+            make.top.topMargin.equalTo(addExerciseView.snp_topMargin).offset(10)
+            make.left.leftMargin.equalTo(addExerciseView.snp_leftMargin).offset(10)
         }
     }
     
@@ -245,7 +255,9 @@ class ProfileViewController: UIViewController {
         
         let tapForProfilePic = UITapGestureRecognizer(target: self, action: #selector(handleSelectProfilePic))
         profilePic.addGestureRecognizer(tapForProfilePic)
-
+        
+        let tapForAddEx = UITapGestureRecognizer(target: self, action: #selector(ButtonClick(_:)))
+        addExerciseView.addGestureRecognizer(tapForAddEx)
     }
     
     @objc func logoutClicked(_ sender: UIButton) {
@@ -288,15 +300,33 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         let size = CGSize(width: 200, height: 200)
         if let image = info[.originalImage] as? UIImage {
             let img = image.af_imageScaled(to: size)
-            print("img\(img)")
+            print("imgEdited\(img)")
+            selectedImage = image
             self.profilePic.image = img
             self.profilePic.setNeedsDisplay()
         }
         else if let image = info[.editedImage] as? UIImage {
             let img = image.af_imageScaled(to: size)
+            print("imgOriginal\(img)")
+            selectedImage = img
+            let imageURL = info[.imageURL]
+            storeImageInFB(url: imageURL as! URL)
             self.profilePic.image = img
             self.profilePic.setNeedsDisplay()
         }
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func storeImageInFB(url: URL) {
+        guard let userId = self.auth.currentUser?.uid else { return }
+        
+        let changeRequest = self.auth.currentUser?.createProfileChangeRequest()
+        changeRequest?.photoURL = url
+        changeRequest?.commitChanges(completion: { (error) in
+            print("Error in changing image \(error)")
+        })
+        
+        self.db.collection("users").document(userId).setData(["imageURL": url.absoluteString], merge: true)
+        
     }
 }

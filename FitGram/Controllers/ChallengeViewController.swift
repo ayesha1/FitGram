@@ -16,9 +16,4 @@ class ChallengeViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         self.title = "Challenge"
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
