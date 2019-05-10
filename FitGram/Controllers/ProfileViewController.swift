@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     var imageFromFirestore = #imageLiteral(resourceName: "user")
     var selectedImage: UIImage?
      let timestamp = NSDate().timeIntervalSince1970
+    let date = Date()
     
     lazy var profilePic: UIImageView = {
         let image = UIImageView()
@@ -25,7 +26,7 @@ class ProfileViewController: UIViewController {
         image.layer.masksToBounds = true
         image.isUserInteractionEnabled = true
         var imageProfile = UIImage()
-        print("😕\(Auth.auth().currentUser?.photoURL)")
+        print("😕\(self.date.description)")
         return image
     }()
     

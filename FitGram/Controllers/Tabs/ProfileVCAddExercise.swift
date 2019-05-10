@@ -30,7 +30,7 @@ extension ProfileViewController {
             let caloriesBurned = alertController.textFields?[1].text
             var ref: DocumentReference? = nil
             
-            let dataToSave: [String: Any] = ["workoutName": workoutName, "timeEntered": self.timestamp, "caloriesBurned": Int(caloriesBurned!)]
+            let dataToSave: [String: Any] = ["workoutName": workoutName, "timeEntered": self.date.description, "caloriesBurned": Int(caloriesBurned!), "name": Auth.auth().currentUser?.displayName?.description]
             ref = self.db.collection("workouts").addDocument(data: dataToSave) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -38,7 +38,6 @@ extension ProfileViewController {
                     print("Document added with ID: \(ref!.documentID)")
                 }
             }
-            
         }
         
         //the cancel action doing nothing

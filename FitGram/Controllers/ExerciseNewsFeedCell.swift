@@ -12,30 +12,43 @@ import SnapKit
 
 class ExerciseNewsFeedCell: UITableViewCell{
     var exerciseImageView = UIImageView()
-    var name = "Kimmy"
-    var timeStamp = "12:51:15 PM"
-    var exercise = "Cycle"
-    var caloriesBurned = 200
     var exerciseLabel = UILabel()
+    let workout = Workouts(workout: "", calories: 0, name: "", time: "")
     
     override init(style _: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: UITableViewCell.CellStyle.value1, reuseIdentifier: reuseIdentifier)
-        setupViews()
+        setupViews(with: workout)
+    }
+    
+    override func awakeFromNib() {
+        //set this in xcode
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupViews() {
-        setupExerciseImageView()
-        setupExerciseNewsLabel()
-        setupTimeLabel()
+    func setupViews(with exercise: Workouts) {
+        for view in contentView.subviews {
+            view.removeFromSuperview()
+        }
+        let exerciseName = exercise.workout
+        let caloriesBurned = exercise.calories
+        let name = exercise.name
+        let timeStamp = exercise.time
+        print("😁\(exercise)")
+        setupExerciseImageView(exerciseName: exerciseName)
+        setupExerciseNewsLabel(name: name, exercise: exerciseName, caloriesBurned: caloriesBurned)
+        setupTimeLabel(time: timeStamp)
     }
     
-    private func setupExerciseImageView() {
+    private func setupExerciseImageView(exerciseName: String) {
         addSubview(exerciseImageView)
-        let exerciseImg = #imageLiteral(resourceName: "bicycle (1)")
+        let exerciseImg = getExerciseImage(name: exerciseName)
         exerciseImageView.image = exerciseImg
         exerciseImageView.snp.makeConstraints { make in
             make.width.equalTo(50)
@@ -45,21 +58,36 @@ class ExerciseNewsFeedCell: UITableViewCell{
         }
     }
     
-    private func setupExerciseNewsLabel() {
+    func getExerciseImage(name: String) -> UIImage {
+        switch name {
+        case "Cycle":
+            return #imageLiteral(resourceName: "bicycle (1)")
+        case "Hike":
+            return #imageLiteral(resourceName: "hiking (1)")
+        case "Swim":
+            return #imageLiteral(resourceName: "swimming (1)")
+        case "Run":
+            return #imageLiteral(resourceName: "runner (1)")
+        default:
+            return #imageLiteral(resourceName: "runner (1)")
+        }
+    }
+    
+    private func setupExerciseNewsLabel(name: String, exercise: String, caloriesBurned: Int) {
         let verb = exerciseName(name: exercise)
         let newsFeedText = name + " " + verb + " and burned " + String(caloriesBurned) + " calories!"
         exerciseLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 16)
         exerciseLabel.text = newsFeedText
         addSubview(exerciseLabel)
         exerciseLabel.snp.makeConstraints { make in
-            make.left.leftMargin.equalTo(exerciseImageView.snp_rightMargin).offset(10)
+            make.left.leftMargin.equalTo(exerciseImageView.snp_rightMargin).offset(20)
             make.top.equalToSuperview().inset(20)
         }
     }
     
-    private func setupTimeLabel() {
+    private func setupTimeLabel(time: String) {
         let timeLabel = UILabel()
-        timeLabel.text = timeStamp
+        timeLabel.text = String(time.dropLast(14))
         timeLabel.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 12)
         addSubview(timeLabel)
         timeLabel.snp.makeConstraints { make in
