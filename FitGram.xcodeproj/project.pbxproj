@@ -19,6 +19,7 @@
 		6A94452322480D3300980F88 /* FitGramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A94452222480D3300980F88 /* FitGramTests.swift */; };
 		6A94452E22480D3300980F88 /* FitGramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A94452D22480D3300980F88 /* FitGramUITests.swift */; };
 		6A9663DF228552AE00246407 /* ProfileVCAddExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9663DE228552AE00246407 /* ProfileVCAddExercise.swift */; };
+		6A9663E322855D1D00246407 /* ExerciseNewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9663E222855D1D00246407 /* ExerciseNewsFeedCell.swift */; };
 		6AADB1D22261624000290A83 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADB1D12261624000290A83 /* LandingPageViewController.swift */; };
 		6AADB1D42261625100290A83 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADB1D32261625100290A83 /* LoginViewController.swift */; };
 		6AADB1D62261625E00290A83 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADB1D52261625E00290A83 /* SignUpViewController.swift */; };
@@ -65,6 +66,7 @@
 		6A94452D22480D3300980F88 /* FitGramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitGramUITests.swift; sourceTree = "<group>"; };
 		6A94452F22480D3300980F88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A9663DE228552AE00246407 /* ProfileVCAddExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCAddExercise.swift; sourceTree = "<group>"; };
+		6A9663E222855D1D00246407 /* ExerciseNewsFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExerciseNewsFeedCell.swift; path = ../ExerciseNewsFeedCell.swift; sourceTree = "<group>"; };
 		6AADB1D12261624000290A83 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		6AADB1D32261625100290A83 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6AADB1D52261625E00290A83 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				6A861C6B2248426B00D7B261 /* ChallengeViewController.swift */,
 				6A861C692248426100D7B261 /* ExerciseNewsFeedViewController.swift */,
+				6A9663E222855D1D00246407 /* ExerciseNewsFeedCell.swift */,
 				6A861C672248425000D7B261 /* ProfileViewController.swift */,
 				6A9663DE228552AE00246407 /* ProfileVCAddExercise.swift */,
 			);
@@ -458,6 +461,7 @@
 				6A861C6C2248426B00D7B261 /* ChallengeViewController.swift in Sources */,
 				6A94451022480D3000980F88 /* ViewController.swift in Sources */,
 				6A94450E22480D3000980F88 /* AppDelegate.swift in Sources */,
+				6A9663E322855D1D00246407 /* ExerciseNewsFeedCell.swift in Sources */,
 				6A861C6A2248426100D7B261 /* ExerciseNewsFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,13 +632,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FitGram/FitGram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RVDWRT8DJ9;
+				DEVELOPMENT_TEAM = 65QL794L6H;
 				INFOPLIST_FILE = FitGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nathanabegaz.FitGram;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ayeshakhan.FitGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -648,13 +652,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FitGram/FitGram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RVDWRT8DJ9;
+				DEVELOPMENT_TEAM = 65QL794L6H;
 				INFOPLIST_FILE = FitGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nathanabegaz.FitGram;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ayeshakhan.FitGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

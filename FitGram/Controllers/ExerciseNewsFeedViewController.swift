@@ -17,23 +17,22 @@ class ExerciseNewsFeedViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(ExerciseNewsFeedCell.self, forCellReuseIdentifier: "myCell")
+        tableView.rowHeight = 100
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.white
         self.title = "Exercise"
-        var roundButton = UIButton(frame: CGRect(origin: CGPoint(x: self.view.frame.width / 2 - 25, y: self.view.frame.height - 70), size: CGSize(width: 50, height: 50)))
-        //Button
-        roundButton.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.navigationController?.view.addSubview(roundButton)
-//        self.roundButton = UIButton(type: .custom)
-//        self.roundButton.setTitleColor(UIColor.orange, for: .normal)
-//        self.roundButton.addTarget(self, action: #selector(ButtonClick(_:)), for: UIControl.Event.touchUpInside)
-//        self.view.bringSubviewToFront(roundButton)
     }
     
-   
+    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return 5
+    }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell") as! ExerciseNewsFeedCell
+        return cell
+    }
     
-   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

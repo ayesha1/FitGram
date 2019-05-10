@@ -11,7 +11,6 @@ import AlamofireImage
 import UIKit
 
 extension ProfileViewController {
-   
     
     @objc func ButtonClick(_ sender: UIButton){
         print("🤬")
