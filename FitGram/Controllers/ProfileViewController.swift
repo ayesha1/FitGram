@@ -96,7 +96,7 @@ class ProfileViewController: UIViewController {
         let streaks = UILabel()
         streaks.font = UIFont(name: "AppleSDGothicNeo-Thin", size: 30)
         streaks.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        streaks.text = "Streaks"
+        streaks.text = "Add Exercise"
         return streaks
     }()
     
