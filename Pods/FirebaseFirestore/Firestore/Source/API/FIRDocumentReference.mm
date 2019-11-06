@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#import "FIRDocumentReference.h"
+#import "FIRDocumentReference+Internal.h"
 
 #include <memory>
 #include <utility>
@@ -27,42 +27,38 @@
 #import "Firestore/Source/API/FIRFirestoreSource+Internal.h"
 #import "Firestore/Source/API/FIRListenerRegistration+Internal.h"
 #import "Firestore/Source/API/FSTUserDataConverter.h"
-#import "Firestore/Source/Core/FSTEventManager.h"
-#import "Firestore/Source/Core/FSTQuery.h"
-#import "Firestore/Source/Model/FSTFieldValue.h"
 
 #include "Firestore/core/src/firebase/firestore/api/document_reference.h"
 #include "Firestore/core/src/firebase/firestore/api/document_snapshot.h"
-#include "Firestore/core/src/firebase/firestore/api/input_validation.h"
 #include "Firestore/core/src/firebase/firestore/api/source.h"
 #include "Firestore/core/src/firebase/firestore/core/event_listener.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/document_set.h"
-#include "Firestore/core/src/firebase/firestore/model/precondition.h"
 #include "Firestore/core/src/firebase/firestore/model/resource_path.h"
 #include "Firestore/core/src/firebase/firestore/util/error_apple.h"
+#include "Firestore/core/src/firebase/firestore/util/exception.h"
 #include "Firestore/core/src/firebase/firestore/util/status.h"
 #include "Firestore/core/src/firebase/firestore/util/statusor.h"
-#include "Firestore/core/src/firebase/firestore/util/statusor_callback.h"
 #include "Firestore/core/src/firebase/firestore/util/string_apple.h"
 
 namespace util = firebase::firestore::util;
+using firebase::firestore::api::CollectionReference;
 using firebase::firestore::api::DocumentReference;
 using firebase::firestore::api::DocumentSnapshot;
 using firebase::firestore::api::Firestore;
+using firebase::firestore::api::ListenerRegistration;
 using firebase::firestore::api::Source;
 using firebase::firestore::api::MakeSource;
-using firebase::firestore::api::ThrowInvalidArgument;
 using firebase::firestore::core::EventListener;
 using firebase::firestore::core::ListenOptions;
 using firebase::firestore::core::ParsedSetData;
 using firebase::firestore::core::ParsedUpdateData;
 using firebase::firestore::model::DocumentKey;
-using firebase::firestore::model::Precondition;
 using firebase::firestore::model::ResourcePath;
 using firebase::firestore::util::Status;
 using firebase::firestore::util::StatusOr;
 using firebase::firestore::util::StatusOrCallback;
+using firebase::firestore::util::ThrowInvalidArgument;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -79,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
   return self;
 }
 
-- (instancetype)initWithPath:(ResourcePath)path firestore:(Firestore *)firestore {
+- (instancetype)initWithPath:(ResourcePath)path firestore:(std::shared_ptr<Firestore>)firestore {
   if (path.size() % 2 != 0) {
     ThrowInvalidArgument("Invalid document reference. Document references must have an even "
                          "number of segments, but %s has %s",
@@ -88,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
   return [self initWithKey:DocumentKey{std::move(path)} firestore:firestore];
 }
 
-- (instancetype)initWithKey:(DocumentKey)key firestore:(Firestore *)firestore {
+- (instancetype)initWithKey:(DocumentKey)key firestore:(std::shared_ptr<Firestore>)firestore {
   DocumentReference delegate{std::move(key), firestore};
   return [self initWithReference:std::move(delegate)];
 }
@@ -115,16 +111,15 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (NSString *)documentID {
-  return util::WrapNSString(_documentReference.document_id());
+  return util::MakeNSString(_documentReference.document_id());
 }
 
 - (FIRCollectionReference *)parent {
-  return [FIRCollectionReference referenceWithPath:_documentReference.key().path().PopLast()
-                                         firestore:self.firestore];
+  return [[FIRCollectionReference alloc] initWithReference:_documentReference.Parent()];
 }
 
 - (NSString *)path {
-  return util::WrapNSString(_documentReference.Path());
+  return util::MakeNSString(_documentReference.Path());
 }
 
 - (FIRCollectionReference *)collectionWithPath:(NSString *)collectionPath {
@@ -132,9 +127,9 @@ NS_ASSUME_NONNULL_BEGIN
     ThrowInvalidArgument("Collection path cannot be nil.");
   }
 
-  ResourcePath subPath = ResourcePath::FromString(util::MakeString(collectionPath));
-  ResourcePath path = _documentReference.key().path().Append(subPath);
-  return [FIRCollectionReference referenceWithPath:path firestore:self.firestore];
+  CollectionReference child =
+      _documentReference.GetCollectionReference(util::MakeString(collectionPath));
+  return [[FIRCollectionReference alloc] initWithReference:std::move(child)];
 }
 
 - (void)setData:(NSDictionary<NSString *, id> *)documentData {
@@ -161,8 +156,7 @@ NS_ASSUME_NONNULL_BEGIN
   auto dataConverter = self.firestore.dataConverter;
   ParsedSetData parsed = merge ? [dataConverter parsedMergeData:documentData fieldMask:nil]
                                : [dataConverter parsedSetData:documentData];
-  _documentReference.SetData(
-      std::move(parsed).ToMutations(_documentReference.key(), Precondition::None()), completion);
+  _documentReference.SetData(std::move(parsed), util::MakeCallback(completion));
 }
 
 - (void)setData:(NSDictionary<NSString *, id> *)documentData
@@ -170,8 +164,7 @@ NS_ASSUME_NONNULL_BEGIN
      completion:(nullable void (^)(NSError *_Nullable error))completion {
   ParsedSetData parsed = [self.firestore.dataConverter parsedMergeData:documentData
                                                              fieldMask:mergeFields];
-  _documentReference.SetData(
-      std::move(parsed).ToMutations(_documentReference.key(), Precondition::None()), completion);
+  _documentReference.SetData(std::move(parsed), util::MakeCallback(completion));
 }
 
 - (void)updateData:(NSDictionary<id, id> *)fields {
@@ -181,9 +174,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateData:(NSDictionary<id, id> *)fields
         completion:(nullable void (^)(NSError *_Nullable error))completion {
   ParsedUpdateData parsed = [self.firestore.dataConverter parsedUpdateData:fields];
-  _documentReference.UpdateData(
-      std::move(parsed).ToMutations(_documentReference.key(), Precondition::Exists(true)),
-      completion);
+  _documentReference.UpdateData(std::move(parsed), util::MakeCallback(completion));
 }
 
 - (void)deleteDocument {
@@ -191,7 +182,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (void)deleteDocumentWithCompletion:(nullable void (^)(NSError *_Nullable error))completion {
-  _documentReference.DeleteDocument(completion);
+  _documentReference.DeleteDocument(util::MakeCallback(completion));
 }
 
 - (void)getDocumentWithCompletion:(FIRDocumentSnapshotBlock)completion {
@@ -217,7 +208,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (id<FIRListenerRegistration>)addSnapshotListenerInternalWithOptions:(ListenOptions)internalOptions
                                                              listener:(FIRDocumentSnapshotBlock)
                                                                           listener {
-  ListenerRegistration result = _documentReference.AddSnapshotListener(
+  std::unique_ptr<ListenerRegistration> result = _documentReference.AddSnapshotListener(
       std::move(internalOptions), [self wrapDocumentSnapshotBlock:listener]);
   return [[FSTListenerRegistration alloc] initWithRegistration:std::move(result)];
 }
@@ -249,6 +240,10 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - FIRDocumentReference (Internal)
 
 @implementation FIRDocumentReference (Internal)
+
+- (const api::DocumentReference &)internalReference {
+  return _documentReference;
+}
 
 - (const DocumentKey &)key {
   return _documentReference.key();

@@ -29,29 +29,35 @@
 #import "Firestore/Source/API/FIRFieldPath+Internal.h"
 #import "Firestore/Source/API/FIRFieldValue+Internal.h"
 #import "Firestore/Source/API/FIRFirestore+Internal.h"
-#import "Firestore/Source/Model/FSTFieldValue.h"
-#import "Firestore/Source/Model/FSTMutation.h"
+#import "Firestore/Source/API/FIRGeoPoint+Internal.h"
+#import "Firestore/Source/API/converters.h"
 
-#include "Firestore/core/src/firebase/firestore/api/input_validation.h"
 #include "Firestore/core/src/firebase/firestore/core/user_data.h"
 #include "Firestore/core/src/firebase/firestore/model/database_id.h"
 #include "Firestore/core/src/firebase/firestore/model/document_key.h"
 #include "Firestore/core/src/firebase/firestore/model/field_mask.h"
 #include "Firestore/core/src/firebase/firestore/model/field_path.h"
 #include "Firestore/core/src/firebase/firestore/model/field_transform.h"
+#include "Firestore/core/src/firebase/firestore/model/field_value.h"
 #include "Firestore/core/src/firebase/firestore/model/precondition.h"
-#include "Firestore/core/src/firebase/firestore/model/transform_operations.h"
+#include "Firestore/core/src/firebase/firestore/model/transform_operation.h"
+#include "Firestore/core/src/firebase/firestore/nanopb/nanopb_util.h"
+#include "Firestore/core/src/firebase/firestore/timestamp_internal.h"
+#include "Firestore/core/src/firebase/firestore/util/exception.h"
 #include "Firestore/core/src/firebase/firestore/util/hard_assert.h"
 #include "Firestore/core/src/firebase/firestore/util/string_apple.h"
 #include "absl/memory/memory.h"
 #include "absl/strings/match.h"
+#include "absl/types/optional.h"
 
 namespace util = firebase::firestore::util;
-using firebase::firestore::api::ThrowInvalidArgument;
-using firebase::firestore::core::ParsedSetData;
-using firebase::firestore::core::ParsedUpdateData;
+using firebase::Timestamp;
+using firebase::TimestampInternal;
+using firebase::firestore::GeoPoint;
 using firebase::firestore::core::ParseAccumulator;
 using firebase::firestore::core::ParseContext;
+using firebase::firestore::core::ParsedSetData;
+using firebase::firestore::core::ParsedUpdateData;
 using firebase::firestore::core::UserDataSource;
 using firebase::firestore::model::ArrayTransform;
 using firebase::firestore::model::DatabaseId;
@@ -59,10 +65,14 @@ using firebase::firestore::model::DocumentKey;
 using firebase::firestore::model::FieldMask;
 using firebase::firestore::model::FieldPath;
 using firebase::firestore::model::FieldTransform;
+using firebase::firestore::model::FieldValue;
 using firebase::firestore::model::NumericIncrementTransform;
+using firebase::firestore::model::ObjectValue;
 using firebase::firestore::model::Precondition;
 using firebase::firestore::model::ServerTimestampTransform;
 using firebase::firestore::model::TransformOperation;
+using firebase::firestore::nanopb::MakeByteString;
+using firebase::firestore::util::ThrowInvalidArgument;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -70,38 +80,45 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation FSTDocumentKeyReference {
   DocumentKey _key;
+  DatabaseId _databaseID;
 }
 
-- (instancetype)initWithKey:(DocumentKey)key databaseID:(const DatabaseId *)databaseID {
+- (instancetype)initWithKey:(DocumentKey)key databaseID:(DatabaseId)databaseID {
   self = [super init];
   if (self) {
     _key = std::move(key);
-    _databaseID = databaseID;
+    _databaseID = std::move(databaseID);
   }
   return self;
 }
 
-- (const firebase::firestore::model::DocumentKey &)key {
+- (const model::DocumentKey &)key {
   return _key;
+}
+
+- (const model::DatabaseId &)databaseID {
+  return _databaseID;
 }
 
 @end
 
+#pragma mark - Conversion helpers
+
 #pragma mark - FSTUserDataConverter
 
 @interface FSTUserDataConverter ()
-// Does not own the DatabaseId instance.
-@property(assign, nonatomic, readonly) const DatabaseId *databaseID;
 @property(strong, nonatomic, readonly) FSTPreConverterBlock preConverter;
 @end
 
-@implementation FSTUserDataConverter
+@implementation FSTUserDataConverter {
+  DatabaseId _databaseID;
+}
 
-- (instancetype)initWithDatabaseID:(const DatabaseId *)databaseID
+- (instancetype)initWithDatabaseID:(DatabaseId)databaseID
                       preConverter:(FSTPreConverterBlock)preConverter {
   self = [super init];
   if (self) {
-    _databaseID = databaseID;
+    _databaseID = std::move(databaseID);
     _preConverter = preConverter;
   }
   return self;
@@ -115,9 +132,10 @@ NS_ASSUME_NONNULL_BEGIN
   }
 
   ParseAccumulator accumulator{UserDataSource::Set};
-  FSTFieldValue *updateData = [self parseData:input context:accumulator.RootContext()];
+  absl::optional<FieldValue> updateData = [self parseData:input context:accumulator.RootContext()];
+  HARD_ASSERT(updateData.has_value(), "Parsed data should not be nil.");
 
-  return std::move(accumulator).SetData((FSTObjectValue *)updateData);
+  return std::move(accumulator).SetData(ObjectValue(std::move(*updateData)));
 }
 
 - (ParsedSetData)parsedMergeData:(id)input fieldMask:(nullable NSArray<id> *)fieldMask {
@@ -129,8 +147,10 @@ NS_ASSUME_NONNULL_BEGIN
 
   ParseAccumulator accumulator{UserDataSource::MergeSet};
 
-  FSTObjectValue *updateData = (FSTObjectValue *)[self parseData:input
-                                                         context:accumulator.RootContext()];
+  absl::optional<FieldValue> updateData = [self parseData:input context:accumulator.RootContext()];
+  HARD_ASSERT(updateData.has_value(), "Parsed data should not be nil.");
+
+  ObjectValue updateObject = ObjectValue(std::move(*updateData));
 
   if (fieldMask) {
     std::set<FieldPath> validatedFieldPaths;
@@ -138,9 +158,9 @@ NS_ASSUME_NONNULL_BEGIN
       FieldPath path;
 
       if ([fieldPath isKindOfClass:[NSString class]]) {
-        path = [FIRFieldPath pathWithDotSeparatedString:fieldPath].internalValue;
+        path = FieldPath::FromDotSeparatedString(util::MakeString(fieldPath));
       } else if ([fieldPath isKindOfClass:[FIRFieldPath class]]) {
-        path = ((FIRFieldPath *)fieldPath).internalValue;
+        path = static_cast<FIRFieldPath *>(fieldPath).internalValue;
       } else {
         ThrowInvalidArgument("All elements in mergeFields: must be NSStrings or FIRFieldPaths.");
       }
@@ -155,10 +175,11 @@ NS_ASSUME_NONNULL_BEGIN
       validatedFieldPaths.insert(path);
     }
 
-    return std::move(accumulator).MergeData(updateData, FieldMask{std::move(validatedFieldPaths)});
+    return std::move(accumulator)
+        .MergeData(updateObject, FieldMask{std::move(validatedFieldPaths)});
 
   } else {
-    return std::move(accumulator).MergeData(updateData);
+    return std::move(accumulator).MergeData(updateObject);
   }
 }
 
@@ -173,7 +194,7 @@ NS_ASSUME_NONNULL_BEGIN
 
   ParseAccumulator accumulator{UserDataSource::Update};
   __block ParseContext context = accumulator.RootContext();
-  __block FSTObjectValue *updateData = [FSTObjectValue objectValue];
+  __block ObjectValue updateData = ObjectValue::Empty();
 
   [dict enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
     FieldPath path;
@@ -191,11 +212,11 @@ NS_ASSUME_NONNULL_BEGIN
       // Add it to the field mask, but don't add anything to updateData.
       context.AddToFieldMask(std::move(path));
     } else {
-      FSTFieldValue *_Nullable parsedValue = [self parseData:value
-                                                     context:context.ChildContext(path)];
+      absl::optional<FieldValue> parsedValue = [self parseData:value
+                                                       context:context.ChildContext(path)];
       if (parsedValue) {
         context.AddToFieldMask(path);
-        updateData = [updateData objectBySettingValue:parsedValue forPath:path];
+        updateData = updateData.Set(path, *parsedValue);
       }
     }
   }];
@@ -203,14 +224,14 @@ NS_ASSUME_NONNULL_BEGIN
   return std::move(accumulator).UpdateData(updateData);
 }
 
-- (FSTFieldValue *)parsedQueryValue:(id)input {
+- (FieldValue)parsedQueryValue:(id)input {
   ParseAccumulator accumulator{UserDataSource::Argument};
 
-  FSTFieldValue *_Nullable parsed = [self parseData:input context:accumulator.RootContext()];
+  absl::optional<FieldValue> parsed = [self parseData:input context:accumulator.RootContext()];
   HARD_ASSERT(parsed, "Parsed data should not be nil.");
   HARD_ASSERT(accumulator.field_transforms().empty(),
               "Field transforms should have been disallowed.");
-  return parsed;
+  return *parsed;
 }
 
 /**
@@ -223,7 +244,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @return The parsed value, or nil if the value was a FieldValue sentinel that should not be
  *   included in the resulting parsed data.
  */
-- (nullable FSTFieldValue *)parseData:(id)input context:(ParseContext &&)context {
+- (absl::optional<FieldValue>)parseData:(id)input context:(ParseContext &&)context {
   input = self.preConverter(input);
   if ([input isKindOfClass:[NSDictionary class]]) {
     return [self parseDictionary:(NSDictionary *)input context:std::move(context)];
@@ -234,7 +255,7 @@ NS_ASSUME_NONNULL_BEGIN
     // directly prior to the transform trying to transform it). So we don't call appendToFieldMask
     // and we return nil as our parsing result.
     [self parseSentinelFieldValue:(FIRFieldValue *)input context:std::move(context)];
-    return nil;
+    return absl::nullopt;
 
   } else {
     // If context path is unset we are already inside an array and we don't support field mask paths
@@ -255,39 +276,44 @@ NS_ASSUME_NONNULL_BEGIN
   }
 }
 
-- (FSTFieldValue *)parseDictionary:(NSDictionary *)dict context:(ParseContext &&)context {
-  NSMutableDictionary<NSString *, FSTFieldValue *> *result =
-      [NSMutableDictionary dictionaryWithCapacity:dict.count];
-
-  if ([dict count] == 0) {
+- (FieldValue)parseDictionary:(NSDictionary<NSString *, id> *)dict
+                      context:(ParseContext &&)context {
+  if (dict.count == 0) {
     const FieldPath *path = context.path();
     if (path && !path->empty()) {
       context.AddToFieldMask(*path);
     }
-    return [FSTObjectValue objectValue];
+    return ObjectValue::Empty().AsFieldValue();
   } else {
+    __block ObjectValue result = ObjectValue::Empty();
+
     [dict enumerateKeysAndObjectsUsingBlock:^(NSString *key, id value, BOOL *stop) {
-      FSTFieldValue *_Nullable parsedValue =
+      absl::optional<FieldValue> parsedValue =
           [self parseData:value context:context.ChildContext(util::MakeString(key))];
       if (parsedValue) {
-        result[key] = parsedValue;
+        FieldPath path = FieldPath{util::MakeString(key)};
+        result = result.Set(path, *parsedValue);
       }
     }];
+
+    return result;
   }
-  return [[FSTObjectValue alloc] initWithDictionary:result];
 }
 
-- (FSTFieldValue *)parseArray:(NSArray *)array context:(ParseContext &&)context {
-  NSMutableArray<FSTFieldValue *> *result = [NSMutableArray arrayWithCapacity:array.count];
+- (FieldValue)parseArray:(NSArray<id> *)array context:(ParseContext &&)context {
+  __block FieldValue::Array result;
+  result.reserve(array.count);
+
   [array enumerateObjectsUsingBlock:^(id entry, NSUInteger idx, BOOL *stop) {
-    FSTFieldValue *_Nullable parsedEntry = [self parseData:entry context:context.ChildContext(idx)];
+    absl::optional<FieldValue> parsedEntry = [self parseData:entry
+                                                     context:context.ChildContext(idx)];
     if (!parsedEntry) {
       // Just include nulls in the array for fields being replaced with a sentinel.
-      parsedEntry = [FSTNullValue nullValue];
+      parsedEntry = FieldValue::Null();
     }
-    [result addObject:parsedEntry];
+    result.push_back(*parsedEntry);
   }];
-  return [[FSTArrayValue alloc] initWithValueNoCopy:result];
+  return FieldValue::FromArray(std::move(result));
 }
 
 /**
@@ -324,29 +350,25 @@ NS_ASSUME_NONNULL_BEGIN
     }
 
   } else if ([fieldValue isKindOfClass:[FSTServerTimestampFieldValue class]]) {
-    context.AddToFieldTransforms(*context.path(), absl::make_unique<ServerTimestampTransform>(
-                                                      ServerTimestampTransform::Get()));
+    context.AddToFieldTransforms(*context.path(), ServerTimestampTransform());
 
   } else if ([fieldValue isKindOfClass:[FSTArrayUnionFieldValue class]]) {
-    std::vector<FSTFieldValue *> parsedElements =
+    std::vector<FieldValue> parsedElements =
         [self parseArrayTransformElements:((FSTArrayUnionFieldValue *)fieldValue).elements];
-    auto array_union = absl::make_unique<ArrayTransform>(TransformOperation::Type::ArrayUnion,
-                                                         std::move(parsedElements));
+    ArrayTransform array_union(TransformOperation::Type::ArrayUnion, std::move(parsedElements));
     context.AddToFieldTransforms(*context.path(), std::move(array_union));
 
   } else if ([fieldValue isKindOfClass:[FSTArrayRemoveFieldValue class]]) {
-    std::vector<FSTFieldValue *> parsedElements =
+    std::vector<FieldValue> parsedElements =
         [self parseArrayTransformElements:((FSTArrayRemoveFieldValue *)fieldValue).elements];
-    auto array_remove = absl::make_unique<ArrayTransform>(TransformOperation::Type::ArrayRemove,
-                                                          std::move(parsedElements));
+    ArrayTransform array_remove(TransformOperation::Type::ArrayRemove, std::move(parsedElements));
     context.AddToFieldTransforms(*context.path(), std::move(array_remove));
 
   } else if ([fieldValue isKindOfClass:[FSTNumericIncrementFieldValue class]]) {
     FSTNumericIncrementFieldValue *numericIncrementFieldValue =
         (FSTNumericIncrementFieldValue *)fieldValue;
-    FSTNumberValue *operand =
-        (FSTNumberValue *)[self parsedQueryValue:numericIncrementFieldValue.operand];
-    auto numeric_increment = absl::make_unique<NumericIncrementTransform>(operand);
+    FieldValue operand = [self parsedQueryValue:numericIncrementFieldValue.operand];
+    NumericIncrementTransform numeric_increment(std::move(operand));
 
     context.AddToFieldTransforms(*context.path(), std::move(numeric_increment));
 
@@ -365,9 +387,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @return The parsed value.
  */
-- (nullable FSTFieldValue *)parseScalarValue:(nullable id)input context:(ParseContext &&)context {
+- (absl::optional<FieldValue>)parseScalarValue:(nullable id)input context:(ParseContext &&)context {
   if (!input || [input isMemberOfClass:[NSNull class]]) {
-    return [FSTNullValue nullValue];
+    return FieldValue::Null();
 
   } else if ([input isKindOfClass:[NSNumber class]]) {
     // Recover the underlying type of the number, using the method described here:
@@ -379,7 +401,7 @@ NS_ASSUME_NONNULL_BEGIN
     // Articles/ocrtTypeEncodings.html
     switch (cType[0]) {
       case 'q':
-        return [FSTIntegerValue integerValue:[input longLongValue]];
+        return FieldValue::FromInteger([input longLongValue]);
 
       case 'i':  // Falls through.
       case 's':  // Falls through.
@@ -388,7 +410,7 @@ NS_ASSUME_NONNULL_BEGIN
       case 'S':
         // Coerce integer values that aren't long long. Allow unsigned integer types that are
         // guaranteed small enough to skip a length check.
-        return [FSTIntegerValue integerValue:[input longLongValue]];
+        return FieldValue::FromInteger([input longLongValue]);
 
       case 'L':  // Falls through.
       case 'Q':
@@ -402,19 +424,19 @@ NS_ASSUME_NONNULL_BEGIN
                                  context.FieldDescription());
 
           } else {
-            return [FSTIntegerValue integerValue:(int64_t)extended];
+            return FieldValue::FromInteger(static_cast<int64_t>(extended));
           }
         }
 
       case 'f':
-        return [FSTDoubleValue doubleValue:[input doubleValue]];
+        return FieldValue::FromDouble([input doubleValue]);
 
       case 'd':
         // Double values are already the right type, so just reuse the existing boxed double.
         //
         // Note that NSNumber already performs NaN normalization to a single shared instance
         // so there's no need to treat NaN specially here.
-        return [FSTDoubleValue doubleValue:[input doubleValue]];
+        return FieldValue::FromDouble([input doubleValue]);
 
       case 'B':  // Falls through.
       case 'c':  // Falls through.
@@ -426,7 +448,7 @@ NS_ASSUME_NONNULL_BEGIN
         // legitimate usage of signed chars is impossible, but this should be rare.
         //
         // Additionally, for consistency, map unsigned chars to bools in the same way.
-        return FieldValue::FromBoolean([input boolValue]).Wrap();
+        return FieldValue::FromBoolean([input boolValue]);
 
       default:
         // All documented codes should be handled above, so this shouldn't happen.
@@ -434,35 +456,34 @@ NS_ASSUME_NONNULL_BEGIN
     }
 
   } else if ([input isKindOfClass:[NSString class]]) {
-    return FieldValue::FromString(util::MakeString(input)).Wrap();
+    return FieldValue::FromString(util::MakeString(input));
 
   } else if ([input isKindOfClass:[NSDate class]]) {
-    return [FSTTimestampValue timestampValue:[FIRTimestamp timestampWithDate:input]];
+    NSDate *inputDate = input;
+    return FieldValue::FromTimestamp(api::MakeTimestamp(inputDate));
 
   } else if ([input isKindOfClass:[FIRTimestamp class]]) {
-    FIRTimestamp *originalTimestamp = (FIRTimestamp *)input;
-    FIRTimestamp *truncatedTimestamp =
-        [FIRTimestamp timestampWithSeconds:originalTimestamp.seconds
-                               nanoseconds:originalTimestamp.nanoseconds / 1000 * 1000];
-    return [FSTTimestampValue timestampValue:truncatedTimestamp];
+    FIRTimestamp *inputTimestamp = input;
+    Timestamp timestamp = TimestampInternal::Truncate(api::MakeTimestamp(inputTimestamp));
+    return FieldValue::FromTimestamp(timestamp);
 
   } else if ([input isKindOfClass:[FIRGeoPoint class]]) {
-    return [FSTGeoPointValue geoPointValue:input];
+    return FieldValue::FromGeoPoint(api::MakeGeoPoint(input));
 
   } else if ([input isKindOfClass:[NSData class]]) {
-    return [FSTBlobValue blobValue:input];
+    NSData *inputData = input;
+    return FieldValue::FromBlob(MakeByteString(inputData));
 
   } else if ([input isKindOfClass:[FSTDocumentKeyReference class]]) {
     FSTDocumentKeyReference *reference = input;
-    if (*reference.databaseID != *self.databaseID) {
-      const DatabaseId *other = reference.databaseID;
+    if (reference.databaseID != _databaseID) {
+      const DatabaseId &other = reference.databaseID;
       ThrowInvalidArgument(
           "Document Reference is for database %s/%s but should be for database %s/%s%s",
-          other->project_id(), other->database_id(), self.databaseID->project_id(),
-          self.databaseID->database_id(), context.FieldDescription());
+          other.project_id(), other.database_id(), _databaseID.project_id(),
+          _databaseID.database_id(), context.FieldDescription());
     }
-    return [FSTReferenceValue referenceValue:[FSTDocumentKey keyWithDocumentKey:reference.key]
-                                  databaseID:self.databaseID];
+    return FieldValue::FromReference(_databaseID, reference.key);
 
   } else {
     ThrowInvalidArgument("Unsupported type: %s%s", NSStringFromClass([input class]),
@@ -470,20 +491,21 @@ NS_ASSUME_NONNULL_BEGIN
   }
 }
 
-- (std::vector<FSTFieldValue *>)parseArrayTransformElements:(NSArray<id> *)elements {
+- (std::vector<FieldValue>)parseArrayTransformElements:(NSArray<id> *)elements {
   ParseAccumulator accumulator{UserDataSource::Argument};
 
-  std::vector<FSTFieldValue *> values;
+  std::vector<FieldValue> values;
   for (NSUInteger i = 0; i < elements.count; i++) {
     id element = elements[i];
     // Although array transforms are used with writes, the actual elements being unioned or removed
     // are not considered writes since they cannot contain any FieldValue sentinels, etc.
     ParseContext context = accumulator.RootContext();
 
-    FSTFieldValue *parsedElement = [self parseData:element context:context.ChildContext(i)];
+    absl::optional<FieldValue> parsedElement = [self parseData:element
+                                                       context:context.ChildContext(i)];
     HARD_ASSERT(parsedElement && accumulator.field_transforms().size() == 0,
                 "Failed to properly parse array transform element: %s", element);
-    values.push_back(parsedElement);
+    values.push_back(*parsedElement);
   }
   return values;
 }

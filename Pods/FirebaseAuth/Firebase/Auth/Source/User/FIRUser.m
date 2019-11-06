@@ -30,10 +30,13 @@
 #import "FIRAuthBackend.h"
 #import "FIRAuthRequestConfiguration.h"
 #import "FIRAuthTokenResult_Internal.h"
+#import "FIRAuthWebUtils.h"
 #import "FIRDeleteAccountRequest.h"
 #import "FIRDeleteAccountResponse.h"
 #import "FIREmailAuthProvider.h"
 #import "FIREmailPasswordAuthCredential.h"
+#import "FIREmailLinkSignInRequest.h"
+#import "FIRFederatedAuthProvider.h"
 #import "FIRGameCenterAuthCredential.h"
 #import "FIRGetAccountInfoRequest.h"
 #import "FIRGetAccountInfoResponse.h"
@@ -330,7 +333,7 @@ static void callInMainThreadWithAuthDataResultAndError(
   FIRUserMetadata *metadata =
       [aDecoder decodeObjectOfClass:[FIRUserMetadata class] forKey:kMetadataCodingKey];
   NSString *APIKey =
-      [aDecoder decodeObjectOfClass:[FIRUserMetadata class] forKey:kAPIKeyCodingKey];
+      [aDecoder decodeObjectOfClass:[NSString class] forKey:kAPIKeyCodingKey];
   if (!userID || !tokenService) {
     return nil;
   }
@@ -789,6 +792,21 @@ static void callInMainThreadWithAuthDataResultAndError(
   });
 }
 
+- (void)reauthenticateWithProvider:(id<FIRFederatedAuthProvider>)provider
+                        UIDelegate:(nullable id<FIRAuthUIDelegate>)UIDelegate
+                        completion:(nullable FIRAuthDataResultCallback)completion {
+#if TARGET_OS_IOS
+  dispatch_async(FIRAuthGlobalWorkQueue(), ^{
+    [provider getCredentialWithUIDelegate:UIDelegate
+                               completion:^(FIRAuthCredential *_Nullable credential,
+                                            NSError *_Nullable error) {
+                                 [self reauthenticateWithCredential:credential
+                                                         completion:completion];
+                               }];
+  });
+#endif  // TARGET_OS_IOS
+}
+
 - (nullable NSString *)refreshToken {
   __block NSString *result;
   dispatch_sync(FIRAuthGlobalWorkQueue(), ^{
@@ -936,7 +954,7 @@ static void callInMainThreadWithAuthDataResultAndError(
                                 expirationDate:expDate
                                       authDate:authDate
                                   issuedAtDate:issuedDate
-                                signInProvider:tokenPayloadDictionary[@"sign_in_provider"]
+                                signInProvider:tokenPayloadDictionary[@"firebase"][@"sign_in_provider"]
                                         claims:tokenPayloadDictionary];
   return result;
 }
@@ -971,6 +989,33 @@ static void callInMainThreadWithAuthDataResultAndError(
   }];
 }
 
+- (void)internalVerifyBeforeUpdateEmailWithNewEmail:(NSString *)newEmail
+    actionCodeSettings:(nullable FIRActionCodeSettings *)actionCodeSettings
+    completion:(FIRVerifyBeforeUpdateEmailCallback)completion {
+  dispatch_async(FIRAuthGlobalWorkQueue(), ^{
+    [self internalGetTokenWithCallback:^(NSString *_Nullable accessToken,
+                                         NSError *_Nullable error) {
+      if (error) {
+        callInMainThreadWithError(completion, error);
+        return;
+      }
+      FIRAuthRequestConfiguration *configuration = self->_auth.requestConfiguration;
+      FIRActionCodeSettings *settings = actionCodeSettings;
+      FIRGetOOBConfirmationCodeRequest *request =
+          [FIRGetOOBConfirmationCodeRequest verifyBeforeUpdateEmailWithAccessToken:accessToken
+                                                                          newEmail:newEmail
+                                                                actionCodeSettings:settings
+                                                              requestConfiguration:configuration];
+      [FIRAuthBackend getOOBConfirmationCode:request
+                                    callback:^(FIRGetOOBConfirmationCodeResponse *_Nullable
+                                                   response,
+                                               NSError *_Nullable error) {
+        callInMainThreadWithError(completion, error);
+      }];
+    }];
+  });
+}
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (void)linkWithCredential:(FIRAuthCredential *)credential
@@ -999,15 +1044,68 @@ static void callInMainThreadWithAuthDataResultAndError(
       }
       FIREmailPasswordAuthCredential *emailPasswordCredential =
           (FIREmailPasswordAuthCredential *)credential;
-      [self updateEmail:emailPasswordCredential.email
-               password:emailPasswordCredential.password
-               callback:^(NSError *error) {
-        if (error) {
-          callInMainThreadWithAuthDataResultAndError(completion, nil, error);
-        } else {
-          callInMainThreadWithAuthDataResultAndError(completion, result, nil);
-        }
-      }];
+      if (emailPasswordCredential.password) {
+        [self updateEmail:emailPasswordCredential.email
+                 password:emailPasswordCredential.password
+                 callback:^(NSError *error) {
+                   if (error) {
+                     callInMainThreadWithAuthDataResultAndError(completion, nil, error);
+                   } else {
+                     callInMainThreadWithAuthDataResultAndError(completion, result, nil);
+                   }
+                 }];
+      } else {
+        [self internalGetTokenWithCallback:^(NSString *_Nullable accessToken,
+                                             NSError *_Nullable error) {
+          NSDictionary<NSString *, NSString *> *queryItems = [FIRAuthWebUtils parseURL:emailPasswordCredential.link];
+          if (![queryItems count]) {
+            NSURLComponents *urlComponents = [NSURLComponents componentsWithString:emailPasswordCredential.link];
+            queryItems = [FIRAuthWebUtils parseURL:urlComponents.query];
+          }
+          NSString *actionCode = queryItems[@"oobCode"];
+          FIRAuthRequestConfiguration *requestConfiguration = self.auth.requestConfiguration;
+          FIREmailLinkSignInRequest *request =
+          [[FIREmailLinkSignInRequest alloc] initWithEmail:emailPasswordCredential.email
+                                                   oobCode:actionCode
+                                      requestConfiguration:requestConfiguration];
+          request.IDToken = accessToken;
+          [FIRAuthBackend emailLinkSignin:request
+                                 callback:^(FIREmailLinkSignInResponse *_Nullable response,
+                                            NSError *_Nullable error) {
+             if (error){
+               callInMainThreadWithAuthDataResultAndError(completion, nil, error);
+             } else {
+               [self internalGetTokenWithCallback:^(NSString *_Nullable accessToken,
+                                                    NSError *_Nullable error) {
+                 if (error) {
+                   callInMainThreadWithAuthDataResultAndError(completion, nil, error);
+                   return;
+                 }
+
+                 FIRGetAccountInfoRequest *getAccountInfoRequest =
+                 [[FIRGetAccountInfoRequest alloc] initWithAccessToken:accessToken
+                                                  requestConfiguration:requestConfiguration];
+                 [FIRAuthBackend getAccountInfo:getAccountInfoRequest
+                                       callback:^(FIRGetAccountInfoResponse *_Nullable response,
+                                                  NSError *_Nullable error) {
+                   if (error) {
+                     [self signOutIfTokenIsInvalidWithError:error];
+                     callInMainThreadWithAuthDataResultAndError(completion, nil, error);
+                     return;
+                   }
+                   self.anonymous = NO;
+                   [self updateWithGetAccountInfoResponse:response];
+                   if (![self updateKeychain:&error]) {
+                     callInMainThreadWithAuthDataResultAndError(completion, nil, error);
+                     return;
+                   }
+                   callInMainThreadWithAuthDataResultAndError(completion, result, nil);
+                 }];
+               }];
+             }
+           }];
+        }];
+      }
       return;
     }
 
@@ -1152,6 +1250,21 @@ static void callInMainThreadWithAuthDataResultAndError(
   });
 }
 
+- (void)linkWithProvider:(id<FIRFederatedAuthProvider>)provider
+              UIDelegate:(nullable id<FIRAuthUIDelegate>)UIDelegate
+              completion:(nullable FIRAuthDataResultCallback)completion {
+#if TARGET_OS_IOS
+  dispatch_async(FIRAuthGlobalWorkQueue(), ^{
+    [provider getCredentialWithUIDelegate:UIDelegate
+                               completion:^(FIRAuthCredential *_Nullable credential,
+                                            NSError *_Nullable error) {
+                                 [self linkWithCredential:credential
+                                               completion:completion];
+                               }];
+  });
+#endif  // TARGET_OS_IOS
+}
+
 - (void)unlinkFromProvider:(NSString *)provider
                 completion:(nullable FIRAuthResultCallback)completion {
   [_taskQueue enqueueTask:^(FIRAuthSerialTaskCompletionBlock _Nonnull complete) {
@@ -1170,19 +1283,11 @@ static void callInMainThreadWithAuthDataResultAndError(
           [[FIRSetAccountInfoRequest alloc] initWithRequestConfiguration:requestConfiguration];
       setAccountInfoRequest.accessToken = accessToken;
 
-      if ([provider isEqualToString:FIREmailAuthProviderID]) {
-        if (!self->_hasEmailPasswordCredential) {
-          completeAndCallbackWithError([FIRAuthErrorUtils noSuchProviderError]);
-          return;
-        }
-        setAccountInfoRequest.deleteAttributes = @[ FIRSetAccountInfoUserAttributePassword ];
-      } else {
-        if (!self->_providerData[provider]) {
-          completeAndCallbackWithError([FIRAuthErrorUtils noSuchProviderError]);
-          return;
-        }
-        setAccountInfoRequest.deleteProviders = @[ provider ];
+      if (!self->_providerData[provider]) {
+        completeAndCallbackWithError([FIRAuthErrorUtils noSuchProviderError]);
+        return;
       }
+      setAccountInfoRequest.deleteProviders = @[ provider ];
 
       [FIRAuthBackend setAccountInfo:setAccountInfoRequest
                             callback:^(FIRSetAccountInfoResponse *_Nullable response,
