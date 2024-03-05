@@ -142,7 +142,6 @@ Optional:
 <img src='http://g.recordit.co/wDyvwE9JTb.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 * Multiple View Controllers
-<img src='https://media.giphy.com/media/Rj0EKXLpcmjssMfoKY/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 
